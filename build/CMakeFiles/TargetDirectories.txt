@@ -1,0 +1,3 @@
+/home/mariia/projects/ta/lab1/build/CMakeFiles/recognizer.dir
+/home/mariia/projects/ta/lab1/build/CMakeFiles/edit_cache.dir
+/home/mariia/projects/ta/lab1/build/CMakeFiles/rebuild_cache.dir
