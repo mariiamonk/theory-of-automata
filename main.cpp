@@ -5,6 +5,6 @@
 int main(){
     Regex::RegexRecognizer r;
     StringGenerator g;
-    g.generateToFile("input.txt", 100);
+    g.generateToFile("input.txt", 100000);
     r.validate("input.txt");
 }

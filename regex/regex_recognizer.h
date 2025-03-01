@@ -1,6 +1,8 @@
 #include "../statistics/recognizer.h"
 #include <regex>
+#include <chrono>
 #include <string>
+
 #pragma once
 
 namespace Regex{
