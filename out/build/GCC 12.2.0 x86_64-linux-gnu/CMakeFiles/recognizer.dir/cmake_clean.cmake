@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/recognizer.dir/generator/generator.cpp.o"
+  "CMakeFiles/recognizer.dir/generator/generator.cpp.o.d"
   "CMakeFiles/recognizer.dir/main.cpp.o"
   "CMakeFiles/recognizer.dir/main.cpp.o.d"
   "CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o"

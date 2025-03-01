@@ -4,7 +4,7 @@
 namespace Regex{
 
     bool RegexRecognizer::validate(const std::string& filename){
-        std::regex pattern(R"(^(http:\/\/)?(www\.)?([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-zA-Z]{1,5})$)");
+        std::regex pattern(R"(^(http:\/\/)?(www\.)?([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-z]{1,5})$)");
         std::smatch match;
 
         std::ifstream file(filename, std::ios::in);

@@ -129,6 +129,30 @@ recognizer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/build
 .PHONY : recognizer/fast
 
+generator/generator.o: generator/generator.cpp.o
+.PHONY : generator/generator.o
+
+# target to build an object file
+generator/generator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/generator/generator.cpp.o
+.PHONY : generator/generator.cpp.o
+
+generator/generator.i: generator/generator.cpp.i
+.PHONY : generator/generator.i
+
+# target to preprocess a source file
+generator/generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/generator/generator.cpp.i
+.PHONY : generator/generator.cpp.i
+
+generator/generator.s: generator/generator.cpp.s
+.PHONY : generator/generator.s
+
+# target to generate assembly for a file
+generator/generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/generator/generator.cpp.s
+.PHONY : generator/generator.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... recognizer"
+	@echo "... generator/generator.o"
+	@echo "... generator/generator.i"
+	@echo "... generator/generator.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
