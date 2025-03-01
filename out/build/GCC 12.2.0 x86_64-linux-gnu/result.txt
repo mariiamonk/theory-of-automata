@@ -1,0 +1,6 @@
+usage statistics for zone name strings by smc
+-------------------------------------
+zone_name – number_of_uses:
+abc - 2
+acd - 1
+dfg - 1
