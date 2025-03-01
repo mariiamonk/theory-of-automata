@@ -177,6 +177,30 @@ regex/regex_recognizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.s
 .PHONY : regex/regex_recognizer.cpp.s
 
+statistics/statistics.o: statistics/statistics.cpp.o
+.PHONY : statistics/statistics.o
+
+# target to build an object file
+statistics/statistics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/statistics/statistics.cpp.o
+.PHONY : statistics/statistics.cpp.o
+
+statistics/statistics.i: statistics/statistics.cpp.i
+.PHONY : statistics/statistics.i
+
+# target to preprocess a source file
+statistics/statistics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/statistics/statistics.cpp.i
+.PHONY : statistics/statistics.cpp.i
+
+statistics/statistics.s: statistics/statistics.cpp.s
+.PHONY : statistics/statistics.s
+
+# target to generate assembly for a file
+statistics/statistics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/statistics/statistics.cpp.s
+.PHONY : statistics/statistics.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... regex/regex_recognizer.o"
 	@echo "... regex/regex_recognizer.i"
 	@echo "... regex/regex_recognizer.s"
+	@echo "... statistics/statistics.o"
+	@echo "... statistics/statistics.i"
+	@echo "... statistics/statistics.s"
 .PHONY : help
 
 
