@@ -27,8 +27,8 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:UNINITIALIZED=/usr/bin/g++
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=/usr/bin/g++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -53,8 +53,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:UNINITIALIZED=/usr/bin/gcc
+//C compiler
+CMAKE_C_COMPILER:STRING=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -235,24 +235,6 @@ recognizer_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 recognizer_SOURCE_DIR:STATIC=/home/mariia/projects/ta/lab1
-
-//Value Computed by CMake
-regex_BINARY_DIR:STATIC=/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/regex
-
-//Value Computed by CMake
-regex_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-regex_SOURCE_DIR:STATIC=/home/mariia/projects/ta/lab1/regex
-
-//Value Computed by CMake
-statistics_BINARY_DIR:STATIC=/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/statistics
-
-//Value Computed by CMake
-statistics_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-statistics_SOURCE_DIR:STATIC=/home/mariia/projects/ta/lab1/statistics
 
 
 ########################

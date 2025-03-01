@@ -1,6 +1,0 @@
-# ninja log v5
-1	133	1740675685243909576	CMakeFiles/recognizer.dir/main.cpp.o	f3620dff2fb5ed81
-126	154	1740675201011847797	recognizer	7b2ad5a696c2900f
-0	127	1740676026011749141	CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o	d2a3999a5bc1aac7
-0	128	1740676026011749141	CMakeFiles/recognizer.dir/main.cpp.o	790c1502b60cd9e4
-128	158	1740676026039750018	recognizer	6432982695045b56
