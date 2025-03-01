@@ -185,6 +185,7 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
   /home/mariia/projects/ta/lab1/regex/regex_recognizer.h \
+  /home/mariia/projects/ta/lab1/statistics/recognizer.h \
   /home/mariia/projects/ta/lab1/statistics/statistics.h \
   /usr/include/c++/12/map \
   /usr/include/c++/12/bits/stl_tree.h \
@@ -209,11 +210,51 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
   /usr/include/c++/12/bits/fstream.tcc \
   /usr/include/string.h \
-  /usr/include/strings.h
+  /usr/include/strings.h \
+  /usr/include/c++/12/regex \
+  /usr/include/c++/12/bitset \
+  /usr/include/c++/12/locale \
+  /usr/include/c++/12/bits/locale_facets_nonio.h \
+  /usr/include/c++/12/ctime \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12/bits/locale_conv.h \
+  /usr/include/c++/12/sstream \
+  /usr/include/c++/12/bits/sstream.tcc \
+  /usr/include/c++/12/stack \
+  /usr/include/c++/12/deque \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_deque.h \
+  /usr/include/c++/12/bits/deque.tcc \
+  /usr/include/c++/12/bits/stl_stack.h \
+  /usr/include/c++/12/bits/shared_ptr.h \
+  /usr/include/c++/12/bits/shared_ptr_base.h \
+  /usr/include/c++/12/bits/allocated_ptr.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/ext/concurrence.h \
+  /usr/include/c++/12/bits/std_function.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
+  /usr/include/c++/12/bits/regex_constants.h \
+  /usr/include/c++/12/bits/regex_error.h \
+  /usr/include/c++/12/bits/regex_automaton.h \
+  /usr/include/c++/12/bits/regex_automaton.tcc \
+  /usr/include/c++/12/bits/regex_scanner.h \
+  /usr/include/c++/12/bits/regex_scanner.tcc \
+  /usr/include/c++/12/bits/regex_compiler.h \
+  /usr/include/c++/12/bits/regex_compiler.tcc \
+  /usr/include/c++/12/bits/regex.h \
+  /usr/include/c++/12/bits/regex.tcc \
+  /usr/include/c++/12/bits/regex_executor.h \
+  /usr/include/c++/12/bits/regex_executor.tcc
 
 CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta/lab1/regex/regex_recognizer.cpp \
   /usr/include/stdc-predef.h \
   /home/mariia/projects/ta/lab1/regex/regex_recognizer.h \
+  /home/mariia/projects/ta/lab1/statistics/recognizer.h \
   /usr/include/c++/12/iostream \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -394,7 +435,71 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta
   /usr/include/c++/12/bits/basic_ios.tcc \
   /usr/include/c++/12/bits/ostream.tcc \
   /usr/include/c++/12/istream \
-  /usr/include/c++/12/bits/istream.tcc
+  /usr/include/c++/12/bits/istream.tcc \
+  /home/mariia/projects/ta/lab1/statistics/statistics.h \
+  /usr/include/c++/12/map \
+  /usr/include/c++/12/bits/stl_tree.h \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/bits/node_handle.h \
+  /usr/include/c++/12/bits/stl_map.h \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/bits/stl_multimap.h \
+  /usr/include/c++/12/bits/erase_if.h \
+  /usr/include/c++/12/algorithm \
+  /usr/include/c++/12/bits/stl_algo.h \
+  /usr/include/c++/12/bits/algorithmfwd.h \
+  /usr/include/c++/12/bits/stl_heap.h \
+  /usr/include/c++/12/bits/stl_tempbuf.h \
+  /usr/include/c++/12/bits/uniform_int_dist.h \
+  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/fstream \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+  /usr/include/c++/12/bits/fstream.tcc \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/c++/12/regex \
+  /usr/include/c++/12/bitset \
+  /usr/include/c++/12/locale \
+  /usr/include/c++/12/bits/locale_facets_nonio.h \
+  /usr/include/c++/12/ctime \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12/bits/locale_conv.h \
+  /usr/include/c++/12/sstream \
+  /usr/include/c++/12/bits/sstream.tcc \
+  /usr/include/c++/12/stack \
+  /usr/include/c++/12/deque \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_deque.h \
+  /usr/include/c++/12/bits/deque.tcc \
+  /usr/include/c++/12/bits/stl_stack.h \
+  /usr/include/c++/12/bits/shared_ptr.h \
+  /usr/include/c++/12/bits/shared_ptr_base.h \
+  /usr/include/c++/12/bits/allocated_ptr.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/ext/concurrence.h \
+  /usr/include/c++/12/bits/std_function.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
+  /usr/include/c++/12/bits/regex_constants.h \
+  /usr/include/c++/12/bits/regex_error.h \
+  /usr/include/c++/12/bits/regex_automaton.h \
+  /usr/include/c++/12/bits/regex_automaton.tcc \
+  /usr/include/c++/12/bits/regex_scanner.h \
+  /usr/include/c++/12/bits/regex_scanner.tcc \
+  /usr/include/c++/12/bits/regex_compiler.h \
+  /usr/include/c++/12/bits/regex_compiler.tcc \
+  /usr/include/c++/12/bits/regex.h \
+  /usr/include/c++/12/bits/regex.tcc \
+  /usr/include/c++/12/bits/regex_executor.h \
+  /usr/include/c++/12/bits/regex_executor.tcc
 
 CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/lab1/statistics/statistics.cpp \
   /usr/include/stdc-predef.h \
@@ -606,6 +711,46 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
   /usr/include/strings.h
 
 
+/usr/include/c++/12/bits/regex.tcc:
+
+/usr/include/c++/12/bits/regex_compiler.tcc:
+
+/usr/include/c++/12/bits/regex_compiler.h:
+
+/usr/include/c++/12/bits/regex_scanner.tcc:
+
+/usr/include/c++/12/bits/regex_automaton.tcc:
+
+/usr/include/c++/12/bits/regex_constants.h:
+
+/usr/include/c++/12/bits/stl_bvector.h:
+
+/usr/include/c++/12/bits/stl_vector.h:
+
+/usr/include/c++/12/bits/allocated_ptr.h:
+
+/usr/include/c++/12/bits/shared_ptr_base.h:
+
+/usr/include/c++/12/deque:
+
+/usr/include/c++/12/sstream:
+
+/usr/include/c++/12/bits/locale_conv.h:
+
+/usr/include/c++/12/bits/locale_facets_nonio.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
+
+/usr/include/c++/12/stack:
+
+/usr/include/c++/12/bits/locale_facets_nonio.h:
+
+/usr/include/c++/12/bitset:
+
+/usr/include/c++/12/bits/stl_uninitialized.h:
+
 /usr/include/string.h:
 
 /usr/include/c++/12/bits/fstream.tcc:
@@ -634,9 +779,17 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/ext/aligned_buffer.h:
 
+/home/mariia/projects/ta/lab1/statistics/recognizer.h:
+
+/usr/include/c++/12/bits/regex_executor.tcc:
+
+/usr/include/c++/12/ctime:
+
 /usr/include/c++/12/bits/basic_ios.tcc:
 
 /usr/include/c++/12/bits/streambuf_iterator.h:
+
+/usr/include/c++/12/bits/unique_ptr.h:
 
 /usr/include/c++/12/cwctype:
 
@@ -678,9 +831,13 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
+/usr/include/c++/12/locale:
+
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/c++/12/ext/concurrence.h:
 
 /usr/include/endian.h:
 
@@ -690,9 +847,13 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
+/usr/include/c++/12/bits/sstream.tcc:
+
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/c++/12/cstdlib:
+
+/usr/include/c++/12/bits/stl_deque.h:
 
 /usr/include/c++/12/ext/string_conversions.h:
 
@@ -719,6 +880,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
 
 /usr/include/c++/12/bits/char_traits.h:
+
+/usr/include/c++/12/regex:
 
 /usr/include/stdint.h:
 
@@ -747,6 +910,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h:
+
+/usr/include/c++/12/bits/regex.h:
 
 /usr/include/c++/12/bits/istream.tcc:
 
@@ -896,6 +1061,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h:
 
+/usr/include/libintl.h:
+
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h:
@@ -934,6 +1101,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
+/usr/include/c++/12/bits/regex_error.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
@@ -947,6 +1116,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/c++/12/bits/shared_ptr.h:
 
 /usr/include/c++/12/initializer_list:
 
@@ -982,6 +1153,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/bits/cpp_type_traits.h:
 
+/usr/include/c++/12/bits/deque.tcc:
+
 /usr/include/c++/12/bits/new_allocator.h:
 
 /usr/include/c++/12/bits/cxxabi_forced.h:
@@ -991,6 +1164,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h:
 
 /usr/include/c++/12/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/12/bits/regex_scanner.h:
 
 /usr/include/c++/12/bits/uses_allocator.h:
 
@@ -1002,7 +1177,13 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/debug/debug.h:
 
+/usr/include/c++/12/bits/regex_executor.h:
+
+/usr/include/c++/12/bits/std_function.h:
+
 /usr/include/c++/12/bits/stl_function.h:
+
+/usr/include/c++/12/bits/stl_stack.h:
 
 /usr/include/c++/12/pstl/pstl_config.h:
 
@@ -1014,6 +1195,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/bits/refwrap.h:
 
+/usr/include/c++/12/bits/vector.tcc:
+
 /usr/include/c++/12/bits/predefined_ops.h:
 
 /usr/include/c++/12/bits/functexcept.h:
@@ -1023,6 +1206,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/time.h:
 
 /usr/include/c++/12/bits/range_access.h:
+
+/usr/include/c++/12/bits/regex_automaton.h:
 
 /usr/include/c++/12/ext/type_traits.h:
 

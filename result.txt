@@ -1,0 +1,5 @@
+Usage statistics for zone name strings by REGEX
+Zone_name – Number_of_uses:
+-------------------------------------
+miu - 5
+ru - 4

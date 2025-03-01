@@ -11,18 +11,20 @@ namespace Statistics{
         }
     }
 
-    void Statistics::writeStatToFile(const std::string& filename, const std::string& recognizer_type) 
+    bool Statistics::writeStatToFile(const std::string& filename, const std::string& recognizer_type) 
     {
         std::ofstream file(filename, std::ios::out);
         if(file.is_open()){
-            std::cout << "File open..." << std::endl;
-            file << "usage statistics for zone name strings by " << recognizer_type << "\n-------------------------------------\nzone_name – number_of_uses:\n";
+            std::cout << "File open for writing" << std::endl;
+            file << "Usage statistics for zone name strings by " << recognizer_type << "\nZone_name – Number_of_uses:\n-------------------------------------\n";
             for(auto elem : stat){
                 file << elem.first << " - " << elem.second << std::endl;
             }
         }else {
             std::cerr << "Error of open file: " << filename << std::endl;
+            return false;
         }
         file.close();
+        return true;
     }
 }

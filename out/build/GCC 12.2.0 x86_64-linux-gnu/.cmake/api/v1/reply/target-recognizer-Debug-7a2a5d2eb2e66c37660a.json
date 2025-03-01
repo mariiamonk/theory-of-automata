@@ -86,7 +86,8 @@
 			"sourceIndexes" : 
 			[
 				1,
-				3
+				3,
+				5
 			]
 		}
 	],
@@ -100,7 +101,18 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "regex/regex_recognizer.h",
+			"path" : "statistics/statistics.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "statistics/statistics.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "statistics/recognizer.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -111,14 +123,8 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "statistics/statistics.h",
+			"path" : "regex/regex_recognizer.h",
 			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "statistics/statistics.cpp",
-			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"

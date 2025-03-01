@@ -236,6 +236,24 @@ recognizer_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 recognizer_SOURCE_DIR:STATIC=/home/mariia/projects/ta/lab1
 
+//Value Computed by CMake
+regex_BINARY_DIR:STATIC=/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/regex
+
+//Value Computed by CMake
+regex_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+regex_SOURCE_DIR:STATIC=/home/mariia/projects/ta/lab1/regex
+
+//Value Computed by CMake
+statistics_BINARY_DIR:STATIC=/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/statistics
+
+//Value Computed by CMake
+statistics_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+statistics_SOURCE_DIR:STATIC=/home/mariia/projects/ta/lab1/statistics
+
 
 ########################
 # INTERNAL cache entries
