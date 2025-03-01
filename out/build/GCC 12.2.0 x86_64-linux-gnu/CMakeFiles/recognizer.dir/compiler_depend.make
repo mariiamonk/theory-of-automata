@@ -481,6 +481,11 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/c++/12/bits/regex.tcc \
   /usr/include/c++/12/bits/regex_executor.h \
   /usr/include/c++/12/bits/regex_executor.tcc \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/bits/parse_numbers.h \
   /home/mariia/projects/ta/lab1/generator/generator.h \
   /usr/include/c++/12/random \
   /usr/include/c++/12/cmath \
@@ -495,7 +500,6 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/12/bits/specfun.h \
-  /usr/include/c++/12/limits \
   /usr/include/c++/12/tr1/gamma.tcc \
   /usr/include/c++/12/tr1/special_function_util.h \
   /usr/include/c++/12/tr1/bessel_function.tcc \
@@ -765,7 +769,12 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta
   /usr/include/c++/12/bits/regex.h \
   /usr/include/c++/12/bits/regex.tcc \
   /usr/include/c++/12/bits/regex_executor.h \
-  /usr/include/c++/12/bits/regex_executor.tcc
+  /usr/include/c++/12/bits/regex_executor.tcc \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/bits/parse_numbers.h
 
 CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/lab1/statistics/statistics.cpp \
   /usr/include/stdc-predef.h \
@@ -981,6 +990,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /home/mariia/projects/ta/lab1/regex/regex_recognizer.cpp:
 
+/usr/include/c++/12/bits/parse_numbers.h:
+
 /usr/include/c++/12/bits/regex_executor.h:
 
 /usr/include/c++/12/bits/regex.h:
@@ -1163,6 +1174,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
 
+/usr/include/c++/12/bits/chrono.h:
+
 /usr/include/c++/12/clocale:
 
 /usr/include/stdc-predef.h:
@@ -1192,6 +1205,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/math.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/c++/12/ratio:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
 
@@ -1344,6 +1359,8 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/c++/12/cstdlib:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/c++/12/chrono:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 

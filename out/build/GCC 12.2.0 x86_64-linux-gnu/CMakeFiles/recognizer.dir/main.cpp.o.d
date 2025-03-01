@@ -199,7 +199,9 @@ CMakeFiles/recognizer.dir/main.cpp.o: \
  /usr/include/c++/12/bits/regex_compiler.tcc \
  /usr/include/c++/12/bits/regex.h /usr/include/c++/12/bits/regex.tcc \
  /usr/include/c++/12/bits/regex_executor.h \
- /usr/include/c++/12/bits/regex_executor.tcc \
+ /usr/include/c++/12/bits/regex_executor.tcc /usr/include/c++/12/chrono \
+ /usr/include/c++/12/bits/chrono.h /usr/include/c++/12/ratio \
+ /usr/include/c++/12/limits /usr/include/c++/12/bits/parse_numbers.h \
  /home/mariia/projects/ta/lab1/generator/generator.h \
  /usr/include/c++/12/random /usr/include/c++/12/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -211,8 +213,7 @@ CMakeFiles/recognizer.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/12/bits/specfun.h /usr/include/c++/12/limits \
- /usr/include/c++/12/tr1/gamma.tcc \
+ /usr/include/c++/12/bits/specfun.h /usr/include/c++/12/tr1/gamma.tcc \
  /usr/include/c++/12/tr1/special_function_util.h \
  /usr/include/c++/12/tr1/bessel_function.tcc \
  /usr/include/c++/12/tr1/beta_function.tcc \

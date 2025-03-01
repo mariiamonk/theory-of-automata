@@ -200,4 +200,6 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: \
  /usr/include/c++/12/bits/regex_compiler.tcc \
  /usr/include/c++/12/bits/regex.h /usr/include/c++/12/bits/regex.tcc \
  /usr/include/c++/12/bits/regex_executor.h \
- /usr/include/c++/12/bits/regex_executor.tcc
+ /usr/include/c++/12/bits/regex_executor.tcc /usr/include/c++/12/chrono \
+ /usr/include/c++/12/bits/chrono.h /usr/include/c++/12/ratio \
+ /usr/include/c++/12/limits /usr/include/c++/12/bits/parse_numbers.h
