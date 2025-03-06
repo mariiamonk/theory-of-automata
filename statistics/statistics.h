@@ -8,7 +8,7 @@
 
 namespace Statistics{
     class Statistics{
-            std::map <std::string, long int> stat;
+            std::map <std::string, int> stat;
         public:
             Statistics() = default;
 

@@ -1,13 +1,13 @@
 #include "../statistics/recognizer.h"
-#include <regex>
+#include <FlexLexer.h>
 
 #pragma once
 
-namespace Regex{
-    class RegexRecognizer : public Recognizer{
+namespace Flex{
+    class FlexRecognizer : public Recognizer{
         Statistics::Statistics stat;
     public:
-        RegexRecognizer() = default;
+        FlexRecognizer() = default;
         bool validate(const std::string& filename);
     };
 }

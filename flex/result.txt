@@ -1,8 +1,3 @@
 Usage statistics for zone name strings by FLEX
 Zone_name – Number_of_uses:
 -------------------------------------
-DiN - 1
-NVOQm - 1
-b - 1
-qUXec - 1
-rkdsG - 1

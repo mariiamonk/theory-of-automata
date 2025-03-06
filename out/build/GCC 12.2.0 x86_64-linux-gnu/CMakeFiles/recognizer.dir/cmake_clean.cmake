@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o"
+  "CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o.d"
+  "CMakeFiles/recognizer.dir/flex/lex.yy.cc.o"
+  "CMakeFiles/recognizer.dir/flex/lex.yy.cc.o.d"
   "CMakeFiles/recognizer.dir/generator/generator.cpp.o"
   "CMakeFiles/recognizer.dir/generator/generator.cpp.o.d"
   "CMakeFiles/recognizer.dir/main.cpp.o"

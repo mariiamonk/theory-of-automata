@@ -1,8 +1,8 @@
-#include "regex_recognizer.h"
+#include "flex_recognizer.h"
 
-namespace Regex{
+namespace Flex{
 
-    bool RegexRecognizer::validate(const std::string& filename){
+    bool FlexRecognizer::validate(const std::string& filename){
         std::ifstream file(filename, std::ios::in);
         if(!file.is_open()){
             std::cerr << "Error of open file: " << filename << std::endl;
@@ -12,15 +12,18 @@ namespace Regex{
         std::cout << "File open for reading" << std::endl;
         std::string line;
 
+        std::stringstream stringstream_;
+
+        yyFlexLexer ftp;
+        ftp.yyrestart(stringstream_);
+
         auto start = std::chrono::high_resolution_clock::now();
 
-        std::regex pattern(R"(^(http:\/\/|www\.)([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-z]{1,5})$)");
-        std::smatch match;
-
-        while (std::getline(file, line))
+        while(std::getline(file, line))
         {
-            if(std::regex_match(line, match, pattern)){
-                stat.appdate(match[4]);
+            stringstream_ << line << "\n";
+            if(ftp.yylex()) {
+                stat.appdate(ftp.YYText());
             }
         }
         auto end = std::chrono::high_resolution_clock::now();
@@ -30,9 +33,9 @@ namespace Regex{
  
         time_taken *= 1e-9;
  
-        std::cout << "Time taken by REGEX is : " << std::fixed << time_taken << " sec" << std::endl;
+        std::cout << "Time taken by FLEX is : " << std::fixed << time_taken << " sec" << std::endl;
 
-        if(!stat.writeStatToFile("result.txt", "REGEX"))return false;
+        if(!stat.writeStatToFile("result.txt", "FLEX"))return false;
         std::cout << "Writing result to file" << std::endl;
 
         file.close();

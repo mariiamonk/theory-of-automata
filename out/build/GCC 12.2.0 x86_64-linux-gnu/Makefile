@@ -129,6 +129,54 @@ recognizer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/build
 .PHONY : recognizer/fast
 
+flex/flex_recognizer.o: flex/flex_recognizer.cpp.o
+.PHONY : flex/flex_recognizer.o
+
+# target to build an object file
+flex/flex_recognizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o
+.PHONY : flex/flex_recognizer.cpp.o
+
+flex/flex_recognizer.i: flex/flex_recognizer.cpp.i
+.PHONY : flex/flex_recognizer.i
+
+# target to preprocess a source file
+flex/flex_recognizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.i
+.PHONY : flex/flex_recognizer.cpp.i
+
+flex/flex_recognizer.s: flex/flex_recognizer.cpp.s
+.PHONY : flex/flex_recognizer.s
+
+# target to generate assembly for a file
+flex/flex_recognizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.s
+.PHONY : flex/flex_recognizer.cpp.s
+
+flex/lex.yy.o: flex/lex.yy.cc.o
+.PHONY : flex/lex.yy.o
+
+# target to build an object file
+flex/lex.yy.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/lex.yy.cc.o
+.PHONY : flex/lex.yy.cc.o
+
+flex/lex.yy.i: flex/lex.yy.cc.i
+.PHONY : flex/lex.yy.i
+
+# target to preprocess a source file
+flex/lex.yy.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/lex.yy.cc.i
+.PHONY : flex/lex.yy.cc.i
+
+flex/lex.yy.s: flex/lex.yy.cc.s
+.PHONY : flex/lex.yy.s
+
+# target to generate assembly for a file
+flex/lex.yy.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/lex.yy.cc.s
+.PHONY : flex/lex.yy.cc.s
+
 generator/generator.o: generator/generator.cpp.o
 .PHONY : generator/generator.o
 
@@ -234,6 +282,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... recognizer"
+	@echo "... flex/flex_recognizer.o"
+	@echo "... flex/flex_recognizer.i"
+	@echo "... flex/flex_recognizer.s"
+	@echo "... flex/lex.yy.o"
+	@echo "... flex/lex.yy.i"
+	@echo "... flex/lex.yy.s"
 	@echo "... generator/generator.o"
 	@echo "... generator/generator.i"
 	@echo "... generator/generator.s"

@@ -1,10 +1,11 @@
 #include "regex/regex_recognizer.h"
+#include "flex/flex_recognizer.h"
 #include "statistics/statistics.h"
 #include "generator/generator.h"
 
 int main(){
-    Regex::RegexRecognizer r;
+    Flex::FlexRecognizer r;
     StringGenerator g;
-    g.generateToFile("input.txt", 100000);
+    g.generateToFile("input.txt", 10);
     r.validate("input.txt");
 }
