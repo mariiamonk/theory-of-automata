@@ -9,37 +9,33 @@ namespace Flex{
             return false;
         }
 
-        std::cout << "File open for reading" << std::endl;
         std::string line;
-
-        std::stringstream stringstream_;
-
         yyFlexLexer ftp;
-        ftp.yyrestart(stringstream_);
-
-        auto start = std::chrono::high_resolution_clock::now();
+        std::stringstream stringstream_;
+        std::string recognizedText;
 
         while(std::getline(file, line))
         {
-            stringstream_ << line << "\n";
-            if(ftp.yylex()) {
-                stat.appdate(ftp.YYText());
-            }
-        }
-        auto end = std::chrono::high_resolution_clock::now();
+            stringstream_ << line << "\n"; 
+            ftp.yyrestart(&stringstream_); 
 
-        double time_taken = 
-        std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
- 
-        time_taken *= 1e-9;
- 
-        std::cout << "Time taken by FLEX is : " << std::fixed << time_taken << " sec" << std::endl;
+            if (ftp.yylex()) { 
+                recognizedText = ftp.YYText();
+                recognizedText.pop_back(); 
+                stat.appdate(recognizedText); 
+            }
+
+            stringstream_.clear();
+        }
 
         if(!stat.writeStatToFile("result.txt", "FLEX"))return false;
-        std::cout << "Writing result to file" << std::endl;
 
         file.close();
 
         return true;
+    }
+
+    void FlexRecognizer::timer(){
+        std::cout << "timer\n";
     }
 }

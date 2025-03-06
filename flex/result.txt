@@ -1,3 +1,0 @@
-Usage statistics for zone name strings by FLEX
-Zone_name – Number_of_uses:
--------------------------------------

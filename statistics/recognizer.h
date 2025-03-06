@@ -10,5 +10,6 @@ class Recognizer{
 public:
     virtual ~Recognizer() = default;
     virtual bool validate(const std::string& input) = 0;
+    virtual void timer() = 0;
 };
 

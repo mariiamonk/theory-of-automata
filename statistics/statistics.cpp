@@ -15,7 +15,6 @@ namespace Statistics{
     {
         std::ofstream file(filename, std::ios::out);
         if(file.is_open()){
-            std::cout << "File open for writing" << std::endl;
             file << "Usage statistics for zone name strings by " << recognizer_type << "\nZone_name – Number_of_uses:\n-------------------------------------\n";
             for(auto elem : stat){
                 file << elem.first << " - " << elem.second << std::endl;

@@ -11,15 +11,14 @@
 }
 
 <SERV_DOM>{
-[a-zA-Z0-9]{1,20}\.[a-zA-Z0-9]{1,20}\./([a-zA-Z]{1,5}$)  {BEGIN(ZONE);}
-\n            {BEGIN(INITIAL);}
+(?i:[a-z][a-z0-9]{0,19})\.(?i:[a-z][a-z0-9]{0,19})\./(?i:[a-z]{1,5}\n)  {BEGIN(ZONE);}
+\n            {BEGIN(INITIAL); return 0;}
 .             {BEGIN(INITIAL);}
 }
 
 <ZONE>{
-[a-zA-Z]{1,5}$  {BEGIN(INITIAL); return 1;}
+(?i:[a-z]){1,5}\n {return 1;}
 \n            {BEGIN(INITIAL);}
-.             
 }
 
 %%

@@ -1,6 +1,6 @@
 #include "generator.h"
 
-std::string StringGenerator::generateRandomString(size_t length, bool UpLetters) {
+std::string StringGenerator::generateRandomString(size_t length, bool UpLetters = true) {
     std::string result;
     for (size_t i = 0; i < length; ++i) {
         char c = 'a' + charDist(gen) % 26;
@@ -21,13 +21,15 @@ std::string StringGenerator::generateRandomNumberString(size_t length) {
 }
 
 std::string StringGenerator::generateCorrectString() {
-    std::string url = "http://";
+    std::string url;
     if (charDist(gen) % 2) {
         url += "www.";
+    }else{
+        url = "http://";
     }
-    url += generateRandomString(lengthDist(gen), true) + ".";
-    url += generateRandomString(lengthDist(gen), true) + ".";
-    url += generateRandomString(1 + charDist(gen) % 5, false);
+    url += generateRandomString(lengthDist(gen)) + ".";
+    url += generateRandomString(lengthDist(gen)) + ".";
+    url += generateRandomString(1 + charDist(gen) % 5);
     return url;
 }
 
@@ -39,8 +41,8 @@ std::string StringGenerator::generateIncorrectString() {
     if (charDist(gen) % 2) {
         url += "www.";
     }
-    url += generateRandomString(lengthDist(gen), true) + ".";
-    url += generateRandomString(lengthDist(gen), true) + ".";
+    url += generateRandomString(lengthDist(gen)) + ".";
+    url += generateRandomString(lengthDist(gen)) + ".";
     url += generateRandomNumberString(1 + charDist(gen) % 5);
     return url;
 }

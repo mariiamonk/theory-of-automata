@@ -9,6 +9,7 @@ namespace Regex{
     public:
         RegexRecognizer() = default;
         bool validate(const std::string& filename);
+        void timer();
     };
 }
     
