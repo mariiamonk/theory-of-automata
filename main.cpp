@@ -21,11 +21,13 @@ void runTimerMode(const std::string& recognizerType, const std::string& filePath
     recognizer->timer();
 }
 
-void runNormalMode(const std::string& recognizerType, const std::string& filePath, int numStrings) {
+void runNormalMode(const std::string& recognizerType, const std::string& filePath, int numStrings, std::string no_generate = "") {
     Generator::StringGenerator generator;
 
-    generator.generateToFile(filePath, numStrings);
-    
+    if (no_generate != "no_generate"){
+        generator.generateToFile(filePath, numStrings);
+    }
+
     std::unique_ptr<Recognizer> recognizer = createRecognizer(recognizerType);
     bool success = recognizer->validate(filePath);
 
@@ -38,7 +40,7 @@ void runNormalMode(const std::string& recognizerType, const std::string& filePat
 
 int main(int argc, char* argv[]) {
     if (argc < 4) {
-        std::cerr << "Usage: " << argv[0] << " <recognizer_type> <file_path> <mode(timer/normal)> <num_strings(optional)>\n";
+        std::cerr << "Usage: " << argv[0] << " <recognizer_type> <file_path> <mode(timer/normal)> <num_strings(optional)> <no_generate(optional)>\n";
         std::cerr << "Recognizer types: regex, flex\n";
         return 1;
     }
@@ -55,7 +57,7 @@ int main(int argc, char* argv[]) {
             if (argc > 4) {
                 numStrings = std::stoi(argv[4]);
             }
-            runNormalMode(recognizerType, filePath, numStrings);
+            runNormalMode(recognizerType, filePath, numStrings, argv[5]);
         } else {
             std::cerr << "Unknown mode: " << mode << ". Available modes: timer, normal.\n";
             return 1;

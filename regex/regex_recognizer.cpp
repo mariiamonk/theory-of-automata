@@ -10,8 +10,12 @@ namespace Regex{
         }
     
         std::string line;
+
+        std::string protocol = "^(http://|www.)";
+        std::string name = "([a-zA-Z0-9]{1,20})";
+        std::string zone = "([a-zA-Z]{1,5})$";
     
-        std::regex pattern(R"(^(http:\/\/|www\.)([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-zA-Z]{1,5})$)", std::regex_constants::optimize);  
+        std::regex pattern(protocol + name + '.' + name + '.' + zone, std::regex_constants::optimize);  
         std::smatch match;
     
         while (std::getline(file, line))
@@ -35,7 +39,7 @@ namespace Regex{
 
         std::string line;
 
-        std::regex pattern(R"(^(http:\/\/|www\.)([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-zA-Z]{1,5})$)");
+        std::regex pattern(R"(^(http://|www.)([a-zA-Z0-9]{1,20}).([a-zA-Z0-9]{1,20}).([a-zA-Z]{1,5})$)");
         std::smatch match;
 
         double timer_taken{};
