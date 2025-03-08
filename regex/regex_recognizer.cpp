@@ -8,29 +8,27 @@ namespace Regex{
             std::cerr << "Error of open file: " << filename << std::endl;
             return false;
         }
-
+    
         std::string line;
-
-        std::regex pattern(R"(^(http:\/\/|www\.)([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-zA-Z]{1,5})$)");
+    
+        std::regex pattern(R"(^(http:\/\/|www\.)([a-zA-Z0-9]{1,20})\.([a-zA-Z0-9]{1,20})\.([a-zA-Z]{1,5})$)", std::regex_constants::optimize);  
         std::smatch match;
-
+    
         while (std::getline(file, line))
         {
-            if(std::regex_match(line, match, pattern)){
+            if (std::regex_match(line, match, pattern)) {
                 stat.update(match[4]);
             }
         }
-        
-
-        if(!stat.writeStatToFile("result.txt", "REGEX"))return false;
-
+    
+        if(!stat.writeStatToFile("result.txt", "REGEX")) return false;
+    
         file.close();
-
         return true;
     }
 
     void RegexRecognizer::timer(){
-        std::ofstream timerFile("regex/test_data/timer_Regex.txt");
+        std::ofstream timerFile("regex/test_data/timer_regex.txt");
         if (!timerFile) {
             throw std::runtime_error("Could not open timer file for writing");
         }

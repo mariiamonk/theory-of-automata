@@ -52,6 +52,7 @@ namespace Generator{
 
     void StringGenerator::generateToFile(const std::string& filename, size_t count, int correctString) {
         std::uniform_int_distribution<> lengthDist;
+
         std::ofstream outFile(filename);
         if (!outFile) {
             throw std::runtime_error("Could not open file for writing");

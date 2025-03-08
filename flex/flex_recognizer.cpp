@@ -38,7 +38,7 @@ namespace Flex{
     }
 
     void FlexRecognizer::timer(){
-        std::ofstream timerFile("flex/test_data/timer_Regex.txt");
+        std::ofstream timerFile("flex/test_data/timer_flex.txt");
         if (!timerFile) {
             throw std::runtime_error("Could not open timer file for writing");
         }

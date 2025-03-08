@@ -2,6 +2,7 @@
 #include <sstream>
 #include <chrono>
 #include <string>
+#include <memory>
 #include <vector>
 #include "statistics.h"
 #include "../generator/generator.h"
