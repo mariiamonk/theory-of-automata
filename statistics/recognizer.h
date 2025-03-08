@@ -2,7 +2,9 @@
 #include <sstream>
 #include <chrono>
 #include <string>
+#include <vector>
 #include "statistics.h"
+#include "../generator/generator.h"
 
 #pragma once
 

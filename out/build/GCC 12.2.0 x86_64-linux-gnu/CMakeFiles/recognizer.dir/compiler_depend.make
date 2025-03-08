@@ -194,6 +194,11 @@ CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o: /home/mariia/projects/ta/l
   /usr/include/c++/12/limits \
   /usr/include/c++/12/ctime \
   /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/vector \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
   /home/mariia/projects/ta/lab1/statistics/statistics.h \
   /usr/include/c++/12/map \
   /usr/include/c++/12/bits/stl_tree.h \
@@ -219,6 +224,39 @@ CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o: /home/mariia/projects/ta/l
   /usr/include/c++/12/bits/fstream.tcc \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /home/mariia/projects/ta/lab1/generator/generator.h \
+  /usr/include/c++/12/random \
+  /usr/include/c++/12/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/12/bits/specfun.h \
+  /usr/include/c++/12/tr1/gamma.tcc \
+  /usr/include/c++/12/tr1/special_function_util.h \
+  /usr/include/c++/12/tr1/bessel_function.tcc \
+  /usr/include/c++/12/tr1/beta_function.tcc \
+  /usr/include/c++/12/tr1/ell_integral.tcc \
+  /usr/include/c++/12/tr1/exp_integral.tcc \
+  /usr/include/c++/12/tr1/hypergeometric.tcc \
+  /usr/include/c++/12/tr1/legendre_function.tcc \
+  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12/tr1/poly_hermite.tcc \
+  /usr/include/c++/12/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/bits/random.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
+  /usr/include/c++/12/bits/random.tcc \
+  /usr/include/c++/12/numeric \
+  /usr/include/c++/12/bits/stl_numeric.h \
+  /usr/include/c++/12/bit \
+  /usr/include/c++/12/pstl/glue_numeric_defs.h \
   /usr/include/FlexLexer.h
 
 CMakeFiles/recognizer.dir/flex/lex.yy.cc.o: /home/mariia/projects/ta/lab1/flex/lex.yy.cc \
@@ -841,6 +879,11 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/c++/12/limits \
   /usr/include/c++/12/ctime \
   /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/vector \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
   /home/mariia/projects/ta/lab1/statistics/statistics.h \
   /usr/include/c++/12/map \
   /usr/include/c++/12/bits/stl_tree.h \
@@ -866,44 +909,6 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/c++/12/bits/fstream.tcc \
   /usr/include/string.h \
   /usr/include/strings.h \
-  /usr/include/c++/12/regex \
-  /usr/include/c++/12/bitset \
-  /usr/include/c++/12/locale \
-  /usr/include/c++/12/bits/locale_facets_nonio.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
-  /usr/include/libintl.h \
-  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
-  /usr/include/c++/12/bits/locale_conv.h \
-  /usr/include/c++/12/stack \
-  /usr/include/c++/12/deque \
-  /usr/include/c++/12/bits/stl_uninitialized.h \
-  /usr/include/c++/12/bits/stl_deque.h \
-  /usr/include/c++/12/bits/deque.tcc \
-  /usr/include/c++/12/bits/stl_stack.h \
-  /usr/include/c++/12/bits/shared_ptr.h \
-  /usr/include/c++/12/bits/shared_ptr_base.h \
-  /usr/include/c++/12/bits/allocated_ptr.h \
-  /usr/include/c++/12/bits/unique_ptr.h \
-  /usr/include/c++/12/ext/concurrence.h \
-  /usr/include/c++/12/bits/std_function.h \
-  /usr/include/c++/12/bits/stl_vector.h \
-  /usr/include/c++/12/bits/stl_bvector.h \
-  /usr/include/c++/12/bits/vector.tcc \
-  /usr/include/c++/12/bits/regex_constants.h \
-  /usr/include/c++/12/bits/regex_error.h \
-  /usr/include/c++/12/bits/regex_automaton.h \
-  /usr/include/c++/12/bits/regex_automaton.tcc \
-  /usr/include/c++/12/bits/regex_scanner.h \
-  /usr/include/c++/12/bits/regex_scanner.tcc \
-  /usr/include/c++/12/bits/regex_compiler.h \
-  /usr/include/c++/12/bits/regex_compiler.tcc \
-  /usr/include/c++/12/bits/regex.h \
-  /usr/include/c++/12/bits/regex.tcc \
-  /usr/include/c++/12/bits/regex_executor.h \
-  /usr/include/c++/12/bits/regex_executor.tcc \
-  /home/mariia/projects/ta/lab1/flex/flex_recognizer.h \
-  /usr/include/FlexLexer.h \
   /home/mariia/projects/ta/lab1/generator/generator.h \
   /usr/include/c++/12/random \
   /usr/include/c++/12/cmath \
@@ -931,13 +936,46 @@ CMakeFiles/recognizer.dir/main.cpp.o: /home/mariia/projects/ta/lab1/main.cpp \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /usr/include/c++/12/bits/random.h \
-  /usr/include/c++/12/vector \
   /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
   /usr/include/c++/12/bits/random.tcc \
   /usr/include/c++/12/numeric \
   /usr/include/c++/12/bits/stl_numeric.h \
   /usr/include/c++/12/bit \
-  /usr/include/c++/12/pstl/glue_numeric_defs.h
+  /usr/include/c++/12/pstl/glue_numeric_defs.h \
+  /usr/include/c++/12/regex \
+  /usr/include/c++/12/bitset \
+  /usr/include/c++/12/locale \
+  /usr/include/c++/12/bits/locale_facets_nonio.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12/bits/locale_conv.h \
+  /usr/include/c++/12/stack \
+  /usr/include/c++/12/deque \
+  /usr/include/c++/12/bits/stl_deque.h \
+  /usr/include/c++/12/bits/deque.tcc \
+  /usr/include/c++/12/bits/stl_stack.h \
+  /usr/include/c++/12/bits/shared_ptr.h \
+  /usr/include/c++/12/bits/shared_ptr_base.h \
+  /usr/include/c++/12/bits/allocated_ptr.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/ext/concurrence.h \
+  /usr/include/c++/12/bits/std_function.h \
+  /usr/include/c++/12/bits/regex_constants.h \
+  /usr/include/c++/12/bits/regex_error.h \
+  /usr/include/c++/12/bits/regex_automaton.h \
+  /usr/include/c++/12/bits/regex_automaton.tcc \
+  /usr/include/c++/12/bits/regex_scanner.h \
+  /usr/include/c++/12/bits/regex_scanner.tcc \
+  /usr/include/c++/12/bits/regex_compiler.h \
+  /usr/include/c++/12/bits/regex_compiler.tcc \
+  /usr/include/c++/12/bits/regex.h \
+  /usr/include/c++/12/bits/regex.tcc \
+  /usr/include/c++/12/bits/regex_executor.h \
+  /usr/include/c++/12/bits/regex_executor.tcc \
+  /home/mariia/projects/ta/lab1/flex/flex_recognizer.h \
+  /usr/include/FlexLexer.h
 
 CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta/lab1/regex/regex_recognizer.cpp \
   /usr/include/stdc-predef.h \
@@ -1132,6 +1170,11 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta
   /usr/include/c++/12/limits \
   /usr/include/c++/12/ctime \
   /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/vector \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
   /home/mariia/projects/ta/lab1/statistics/statistics.h \
   /usr/include/c++/12/map \
   /usr/include/c++/12/bits/stl_tree.h \
@@ -1157,6 +1200,39 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta
   /usr/include/c++/12/bits/fstream.tcc \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /home/mariia/projects/ta/lab1/generator/generator.h \
+  /usr/include/c++/12/random \
+  /usr/include/c++/12/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/12/bits/specfun.h \
+  /usr/include/c++/12/tr1/gamma.tcc \
+  /usr/include/c++/12/tr1/special_function_util.h \
+  /usr/include/c++/12/tr1/bessel_function.tcc \
+  /usr/include/c++/12/tr1/beta_function.tcc \
+  /usr/include/c++/12/tr1/ell_integral.tcc \
+  /usr/include/c++/12/tr1/exp_integral.tcc \
+  /usr/include/c++/12/tr1/hypergeometric.tcc \
+  /usr/include/c++/12/tr1/legendre_function.tcc \
+  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12/tr1/poly_hermite.tcc \
+  /usr/include/c++/12/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/bits/random.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
+  /usr/include/c++/12/bits/random.tcc \
+  /usr/include/c++/12/numeric \
+  /usr/include/c++/12/bits/stl_numeric.h \
+  /usr/include/c++/12/bit \
+  /usr/include/c++/12/pstl/glue_numeric_defs.h \
   /usr/include/c++/12/regex \
   /usr/include/c++/12/bitset \
   /usr/include/c++/12/locale \
@@ -1168,7 +1244,6 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta
   /usr/include/c++/12/bits/locale_conv.h \
   /usr/include/c++/12/stack \
   /usr/include/c++/12/deque \
-  /usr/include/c++/12/bits/stl_uninitialized.h \
   /usr/include/c++/12/bits/stl_deque.h \
   /usr/include/c++/12/bits/deque.tcc \
   /usr/include/c++/12/bits/stl_stack.h \
@@ -1178,9 +1253,6 @@ CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o: /home/mariia/projects/ta
   /usr/include/c++/12/bits/unique_ptr.h \
   /usr/include/c++/12/ext/concurrence.h \
   /usr/include/c++/12/bits/std_function.h \
-  /usr/include/c++/12/bits/stl_vector.h \
-  /usr/include/c++/12/bits/stl_bvector.h \
-  /usr/include/c++/12/bits/vector.tcc \
   /usr/include/c++/12/bits/regex_constants.h \
   /usr/include/c++/12/bits/regex_error.h \
   /usr/include/c++/12/bits/regex_automaton.h \
@@ -1452,19 +1524,19 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/bitset:
 
-/usr/include/c++/12/pstl/glue_numeric_defs.h:
+/home/mariia/projects/ta/lab1/generator/generator.cpp:
 
-/usr/include/c++/12/bits/stl_numeric.h:
+/usr/include/linux/close_range.h:
 
-/usr/include/c++/12/numeric:
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
-/usr/include/c++/12/bits/stl_bvector.h:
+/usr/include/x86_64-linux-gnu/bits/confname.h:
 
-/usr/include/c++/12/bits/stl_vector.h:
+/usr/include/x86_64-linux-gnu/bits/environments.h:
 
-/usr/include/c++/12/bits/locale_conv.h:
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
-/usr/include/c++/12/bits/stl_uninitialized.h:
+/usr/include/unistd.h:
 
 /usr/include/c++/12/bits/range_access.h:
 
@@ -1492,7 +1564,9 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/bits/cxxabi_forced.h:
 
-/usr/include/x86_64-linux-gnu/bits/confname.h:
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/c++/12/bits/new_allocator.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h:
 
@@ -1504,11 +1578,13 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
-/usr/include/c++/12/vector:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
@@ -1517,10 +1593,6 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/c++/12/initializer_list:
 
 /usr/include/c++/12/string:
-
-/usr/include/c++/12/bit:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/strings.h:
 
@@ -1578,9 +1650,11 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h:
 
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
 /usr/include/c++/12/bits/stl_algobase.h:
+
+/usr/include/c++/12/cstring:
+
+/usr/include/ctype.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
@@ -1712,8 +1786,6 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
-/usr/include/unistd.h:
-
 /usr/include/c++/12/bits/basic_string.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
@@ -1761,6 +1833,10 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/c++/12/pstl/glue_numeric_defs.h:
+
+/usr/include/c++/12/bits/stl_numeric.h:
 
 /usr/include/c++/12/typeinfo:
 
@@ -1868,12 +1944,6 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/streambuf:
 
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
 /usr/include/c++/12/bits/streambuf.tcc:
 
 /usr/include/c++/12/bits/parse_numbers.h:
@@ -1892,6 +1962,12 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/bits/streambuf_iterator.h:
 
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/c++/12/vector:
+
+/usr/include/c++/12/numeric:
+
 /usr/include/c++/12/ctime:
 
 /usr/include/c++/12/bits/basic_ios.h:
@@ -1902,13 +1978,21 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 
 /usr/include/c++/12/chrono:
 
-/home/mariia/projects/ta/lab1/generator/generator.cpp:
-
 /usr/include/c++/12/clocale:
 
 /usr/include/c++/12/bits/chrono.h:
 
 /usr/include/c++/12/limits:
+
+/usr/include/c++/12/bits/locale_conv.h:
+
+/usr/include/c++/12/bits/stl_uninitialized.h:
+
+/usr/include/string.h:
+
+/usr/include/c++/12/bits/stl_vector.h:
+
+/usr/include/c++/12/bits/stl_bvector.h:
 
 /usr/include/features-time64.h:
 
@@ -1951,22 +2035,6 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h:
 
 /usr/include/c++/12/bits/fstream.tcc:
-
-/usr/include/string.h:
-
-/usr/include/ctype.h:
-
-/usr/include/c++/12/cstring:
-
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-/usr/include/x86_64-linux-gnu/bits/environments.h:
-
-/usr/include/c++/12/bits/new_allocator.h:
-
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/usr/include/linux/close_range.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
@@ -2011,3 +2079,7 @@ CMakeFiles/recognizer.dir/statistics/statistics.cpp.o: /home/mariia/projects/ta/
 /usr/include/c++/12/bits/basic_ios.tcc:
 
 /usr/include/c++/12/tr1/riemann_zeta.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/c++/12/bit:

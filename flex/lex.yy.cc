@@ -298,7 +298,6 @@ void yyfree ( void *  );
 typedef flex_uint8_t YY_CHAR;
 
 #define yytext_ptr yytext
-#define YY_INTERACTIVE
 
 #include <FlexLexer.h>
 
@@ -313,8 +312,8 @@ int yyFlexLexer::yywrap() { return 1; }
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 10
-#define YY_END_OF_BUFFER 11
+#define YY_NUM_RULES 11
+#define YY_END_OF_BUFFER 12
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -322,23 +321,23 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_acclist[25] =
+static const flex_int16_t yy_acclist[27] =
     {   0,
-       11,    4,   10,    3,   10,    4,   10,    4,   10,    7,
-       10,    6,   10,    7,   10,   10,    9,   10,   10,    8,
-        2,16389, 8197,    1
+       12,    4,   11,    3,   11,    4,   11,    4,   11,    7,
+       11,    6,   11,    7,   11,   10,   11,    9,   11,   10,
+       11,    8,    2,16389, 8197,    1
     } ;
 
 static const flex_int16_t yy_accept[81] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    2,    4,    6,
-        8,   10,   12,   14,   16,   17,   19,   20,   20,   20,
-       20,   20,   21,   21,   21,   21,   21,   21,   21,   21,
-       22,   23,   23,   23,   23,   23,   23,   23,   23,   23,
-       23,   24,   24,   24,   24,   25,   25,   25,   25,   25,
-       25,   25,   25,   25,   25,   25,   25,   25,   25,   25,
-       25,   25,   25,   25,   25,   25,   25,   25,   25,   25,
-       25,   25,   25,   25,   25,   25,   25,   25,   25,   25
+        8,   10,   12,   14,   16,   18,   20,   22,   22,   22,
+       22,   22,   23,   23,   23,   23,   23,   23,   23,   23,
+       24,   25,   25,   25,   25,   25,   25,   25,   25,   25,
+       25,   26,   26,   26,   26,   27,   27,   27,   27,   27,
+       27,   27,   27,   27,   27,   27,   27,   27,   27,   27,
+       27,   27,   27,   27,   27,   27,   27,   27,   27,   27,
+       27,   27,   27,   27,   27,   27,   27,   27,   27,   27
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -484,6 +483,7 @@ goto find_rule; \
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 #line 1 "scaner.l"
+#define YY_NO_INPUT 1
 
 #line 489 "lex.yy.cc"
 
@@ -628,7 +628,7 @@ YY_DECL
 		}
 
 	{
-#line 4 "scaner.l"
+#line 6 "scaner.l"
 
 
 #line 635 "lex.yy.cc"
@@ -665,7 +665,7 @@ yy_match:
 			*(yy_state_ptr)++ = yy_current_state;
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 187 );
+		while ( yy_current_state != 79 );
 
 yy_find_action:
 		yy_current_state = *--(yy_state_ptr);
@@ -715,42 +715,42 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "scaner.l"
+#line 9 "scaner.l"
 {BEGIN(SERV_DOM);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 "scaner.l"
+#line 10 "scaner.l"
 {BEGIN(SERV_DOM);}
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 9 "scaner.l"
+#line 11 "scaner.l"
 { return 0; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 10 "scaner.l"
-; 
+#line 12 "scaner.l"
+{;} 
 	YY_BREAK
 
 
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 14 "scaner.l"
+#line 16 "scaner.l"
 {BEGIN(ZONE);}
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 15 "scaner.l"
+#line 17 "scaner.l"
 {BEGIN(INITIAL); return 0;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 "scaner.l"
+#line 18 "scaner.l"
 {BEGIN(INITIAL);}
 	YY_BREAK
 
@@ -758,22 +758,27 @@ YY_RULE_SETUP
 case 8:
 /* rule 8 can match eol */
 YY_RULE_SETUP
-#line 20 "scaner.l"
+#line 22 "scaner.l"
 {return 1;}
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 21 "scaner.l"
+#line 23 "scaner.l"
 {BEGIN(INITIAL);}
 	YY_BREAK
-
 case 10:
 YY_RULE_SETUP
 #line 24 "scaner.l"
+{;}
+	YY_BREAK
+
+case 11:
+YY_RULE_SETUP
+#line 27 "scaner.l"
 ECHO;
 	YY_BREAK
-#line 777 "lex.yy.cc"
+#line 782 "lex.yy.cc"
 			case YY_STATE_EOF(INITIAL):
 			case YY_STATE_EOF(SERV_DOM):
 			case YY_STATE_EOF(ZONE):
@@ -1706,6 +1711,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 24 "scaner.l"
+#line 27 "scaner.l"
 
 

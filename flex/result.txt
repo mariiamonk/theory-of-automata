@@ -1,0 +1,11 @@
+Usage statistics for zone name strings by FLEX
+Zone_name – Number_of_uses:
+-------------------------------------
+F - 1
+Fp - 1
+ZiNi - 1
+qmQq - 1
+tG - 1
+u - 1
+wNXV - 1
+zwpN - 1

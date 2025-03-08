@@ -16,7 +16,7 @@ namespace Statistics{
                 stat.erase(stat.begin(), stat.end());
             }
             
-            void appdate(std::string s);
+            void update(std::string s);
 
             inline auto getStatistics(){
                 return stat;

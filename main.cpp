@@ -5,7 +5,8 @@
 
 int main(){
     Flex::FlexRecognizer r;
-    StringGenerator g;
-    g.generateToFile("input.txt", 10);
+    Generator::StringGenerator g;
+    //r.timer();
+    g.generateToFile("input.txt", 10, 0);
     r.validate("input.txt");
 }

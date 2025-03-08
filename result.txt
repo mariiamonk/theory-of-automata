@@ -1,7 +1,8 @@
 Usage statistics for zone name strings by FLEX
 Zone_name – Number_of_uses:
 -------------------------------------
-Hq - 1
-WIo - 1
-ZiK - 1
-eSD - 1
+AlDD - 1
+Iua - 1
+NF - 1
+qpS - 1
+u - 1

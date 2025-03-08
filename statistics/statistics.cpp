@@ -1,7 +1,7 @@
 #include "statistics.h"
 
 namespace Statistics{
-    void Statistics::appdate(std::string s)
+    void Statistics::update(std::string s)
     {
         auto it = stat.find(s);
         if(it != stat.end()){
@@ -15,7 +15,7 @@ namespace Statistics{
     {
         std::ofstream file(filename, std::ios::out);
         if(file.is_open()){
-            file << "Usage statistics for zone name strings by " << recognizer_type << "\nZone_name – Number_of_uses:\n-------------------------------------\n";
+            file << "Usage statistics for zone name strings by " << recognizer_type << std::endl << "Zone_name – Number_of_uses:" <<std::endl << "-------------------------------------" << std::endl;;
             for(auto elem : stat){
                 file << elem.first << " - " << elem.second << std::endl;
             }

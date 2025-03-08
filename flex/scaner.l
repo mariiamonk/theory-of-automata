@@ -1,13 +1,15 @@
 %option C++ noyywrap
+%option never-interactive
+%option nounput noinput batch
 %x SERV_DOM ZONE
 
 %%
 
 <INITIAL>{
-^http\:\/\/      {BEGIN(SERV_DOM);}
+^http\:\/\/   {BEGIN(SERV_DOM);}
 ^www\.        {BEGIN(SERV_DOM);}
 \n            { return 0; }
-.             ; 
+.             {;} 
 }
 
 <SERV_DOM>{
@@ -19,6 +21,7 @@
 <ZONE>{
 (?i:[a-z]){1,5}\n {return 1;}
 \n            {BEGIN(INITIAL);}
+.             {;}
 }
 
 %%
