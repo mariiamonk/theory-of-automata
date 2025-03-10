@@ -1,11 +1,9 @@
-Usage statistics for zone name strings by REGEX
+Usage statistics for zone name strings by FLEX
 Zone_name – Number_of_uses:
 -------------------------------------
-GUr - 1
-Jj - 1
-b - 1
-eEnR - 1
-hhWLP - 1
-m - 1
-q - 1
-tpN - 1
+AY - 1
+F - 1
+Lv - 1
+MAq - 1
+NDZCz - 1
+WSYh - 1

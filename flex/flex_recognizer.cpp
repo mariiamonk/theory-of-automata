@@ -30,7 +30,7 @@ namespace Flex{
             }
         }
 
-        if(!stat.writeStatToFile("result.txt", "FLEX"))return false;
+        stat.writeStatToFile("result.txt", "FLEX");
 
         file.close();
 
@@ -53,7 +53,7 @@ namespace Flex{
         std::vector <std::string> type_string = {"correct ", "uncorrect ", "random "};
 
         for(int j = 0; j < 3; j++){
-            timerFile << "Time taken by REGEX for " << type_string[j] << ":" << std::endl;
+            timerFile << "Time taken by REGEX for " << type_string[j] << "(sec) :" << std::endl;
             for (int i = 50; i <= 140000; i*=2) {
                 std::string filename = "flex/test_data/testsData_" + std::to_string(i) + "_nums.txt";
 
@@ -77,7 +77,7 @@ namespace Flex{
                     timer_taken += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
                 }
                 timer_taken *= 1e-9;
-                timerFile << i << " : " << std::fixed << timer_taken << " sec" << std::endl;
+                timerFile << i << " : " << std::fixed << timer_taken << std::endl;
                 inputFile.close();
             }
             timerFile << std::endl;

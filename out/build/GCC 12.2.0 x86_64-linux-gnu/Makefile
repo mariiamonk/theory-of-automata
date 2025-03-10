@@ -177,6 +177,30 @@ flex/lex.yy.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/flex/lex.yy.cc.s
 .PHONY : flex/lex.yy.cc.s
 
+functions.o: functions.cpp.o
+.PHONY : functions.o
+
+# target to build an object file
+functions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/functions.cpp.o
+.PHONY : functions.cpp.o
+
+functions.i: functions.cpp.i
+.PHONY : functions.i
+
+# target to preprocess a source file
+functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/functions.cpp.i
+.PHONY : functions.cpp.i
+
+functions.s: functions.cpp.s
+.PHONY : functions.s
+
+# target to generate assembly for a file
+functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/functions.cpp.s
+.PHONY : functions.cpp.s
+
 generator/generator.o: generator/generator.cpp.o
 .PHONY : generator/generator.o
 
@@ -249,6 +273,30 @@ regex/regex_recognizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.s
 .PHONY : regex/regex_recognizer.cpp.s
 
+smc/AppClass.o: smc/AppClass.cpp.o
+.PHONY : smc/AppClass.o
+
+# target to build an object file
+smc/AppClass.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/smc/AppClass.cpp.o
+.PHONY : smc/AppClass.cpp.o
+
+smc/AppClass.i: smc/AppClass.cpp.i
+.PHONY : smc/AppClass.i
+
+# target to preprocess a source file
+smc/AppClass.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/smc/AppClass.cpp.i
+.PHONY : smc/AppClass.cpp.i
+
+smc/AppClass.s: smc/AppClass.cpp.s
+.PHONY : smc/AppClass.s
+
+# target to generate assembly for a file
+smc/AppClass.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/recognizer.dir/build.make CMakeFiles/recognizer.dir/smc/AppClass.cpp.s
+.PHONY : smc/AppClass.cpp.s
+
 statistics/statistics.o: statistics/statistics.cpp.o
 .PHONY : statistics/statistics.o
 
@@ -288,6 +336,9 @@ help:
 	@echo "... flex/lex.yy.o"
 	@echo "... flex/lex.yy.i"
 	@echo "... flex/lex.yy.s"
+	@echo "... functions.o"
+	@echo "... functions.i"
+	@echo "... functions.s"
 	@echo "... generator/generator.o"
 	@echo "... generator/generator.i"
 	@echo "... generator/generator.s"
@@ -297,6 +348,9 @@ help:
 	@echo "... regex/regex_recognizer.o"
 	@echo "... regex/regex_recognizer.i"
 	@echo "... regex/regex_recognizer.s"
+	@echo "... smc/AppClass.o"
+	@echo "... smc/AppClass.i"
+	@echo "... smc/AppClass.s"
 	@echo "... statistics/statistics.o"
 	@echo "... statistics/statistics.i"
 	@echo "... statistics/statistics.s"

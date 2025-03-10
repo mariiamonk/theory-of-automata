@@ -1,0 +1,45 @@
+%start Map1::Start
+%class AppClass
+%header AppClass.h
+
+%map Map1
+%%
+// State    Transition  End State   Action(s)
+Start
+Entry{clearString();}
+{
+            Symbol(sym:char)[isCorrectSym()]          nil         {addSym(Symbol);}
+            Symbol(sym:char)[isHTTPorWWW()]           Name        {clearString(); }
+            Error                                     Error       {Unacceptable();}
+}
+
+Name
+{
+            Symbol(sym:char)[isCorrectSym() && isCorrectNameLenth()]          nil          {addSym(Symbol);}
+            Dot[isCorrectNameLenth() && isFirstName()]                        nil          {clearString(); }
+            Dot[isCorrectNameLenth()]                                         Zone         {clearString(); }
+            Error                                                             Error        {Unacceptable();}
+}
+
+Zone
+{
+            Symbol(sym:char)[isCorrectSym() && isCorrectZoneLenth()]          nil          {addSym(Symbol);}
+            EOS                                                               OK           {Acceptable();}
+            Error                                                             Error        {Unacceptable();}
+}
+
+OK
+{}
+
+Error
+{
+            Symbol(sym:char)        nil         {}
+}
+
+Default
+{
+            Unknown                 Error       {}
+            Reset                   Start       {}
+}
+%%
+

@@ -153,6 +153,34 @@ CMakeFiles/recognizer.dir/flex/lex.yy.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/recognizer.dir/flex/lex.yy.cc.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mariia/projects/ta/lab1/flex/lex.yy.cc -o CMakeFiles/recognizer.dir/flex/lex.yy.cc.s
 
+CMakeFiles/recognizer.dir/smc/AppClass.cpp.o: CMakeFiles/recognizer.dir/flags.make
+CMakeFiles/recognizer.dir/smc/AppClass.cpp.o: /home/mariia/projects/ta/lab1/smc/AppClass.cpp
+CMakeFiles/recognizer.dir/smc/AppClass.cpp.o: CMakeFiles/recognizer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/recognizer.dir/smc/AppClass.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/recognizer.dir/smc/AppClass.cpp.o -MF CMakeFiles/recognizer.dir/smc/AppClass.cpp.o.d -o CMakeFiles/recognizer.dir/smc/AppClass.cpp.o -c /home/mariia/projects/ta/lab1/smc/AppClass.cpp
+
+CMakeFiles/recognizer.dir/smc/AppClass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/recognizer.dir/smc/AppClass.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mariia/projects/ta/lab1/smc/AppClass.cpp > CMakeFiles/recognizer.dir/smc/AppClass.cpp.i
+
+CMakeFiles/recognizer.dir/smc/AppClass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/recognizer.dir/smc/AppClass.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mariia/projects/ta/lab1/smc/AppClass.cpp -o CMakeFiles/recognizer.dir/smc/AppClass.cpp.s
+
+CMakeFiles/recognizer.dir/functions.cpp.o: CMakeFiles/recognizer.dir/flags.make
+CMakeFiles/recognizer.dir/functions.cpp.o: /home/mariia/projects/ta/lab1/functions.cpp
+CMakeFiles/recognizer.dir/functions.cpp.o: CMakeFiles/recognizer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/recognizer.dir/functions.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/recognizer.dir/functions.cpp.o -MF CMakeFiles/recognizer.dir/functions.cpp.o.d -o CMakeFiles/recognizer.dir/functions.cpp.o -c /home/mariia/projects/ta/lab1/functions.cpp
+
+CMakeFiles/recognizer.dir/functions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/recognizer.dir/functions.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mariia/projects/ta/lab1/functions.cpp > CMakeFiles/recognizer.dir/functions.cpp.i
+
+CMakeFiles/recognizer.dir/functions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/recognizer.dir/functions.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mariia/projects/ta/lab1/functions.cpp -o CMakeFiles/recognizer.dir/functions.cpp.s
+
 # Object files for target recognizer
 recognizer_OBJECTS = \
 "CMakeFiles/recognizer.dir/main.cpp.o" \
@@ -160,7 +188,9 @@ recognizer_OBJECTS = \
 "CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o" \
 "CMakeFiles/recognizer.dir/generator/generator.cpp.o" \
 "CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o" \
-"CMakeFiles/recognizer.dir/flex/lex.yy.cc.o"
+"CMakeFiles/recognizer.dir/flex/lex.yy.cc.o" \
+"CMakeFiles/recognizer.dir/smc/AppClass.cpp.o" \
+"CMakeFiles/recognizer.dir/functions.cpp.o"
 
 # External object files for target recognizer
 recognizer_EXTERNAL_OBJECTS =
@@ -171,9 +201,11 @@ recognizer: CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o
 recognizer: CMakeFiles/recognizer.dir/generator/generator.cpp.o
 recognizer: CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o
 recognizer: CMakeFiles/recognizer.dir/flex/lex.yy.cc.o
+recognizer: CMakeFiles/recognizer.dir/smc/AppClass.cpp.o
+recognizer: CMakeFiles/recognizer.dir/functions.cpp.o
 recognizer: CMakeFiles/recognizer.dir/build.make
 recognizer: CMakeFiles/recognizer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable recognizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mariia/projects/ta/lab1/out/build/GCC 12.2.0 x86_64-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable recognizer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/recognizer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

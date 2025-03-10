@@ -19,6 +19,6 @@ namespace Generator{
         std::string generateCorrectString();
         std::string generateIncorrectString();
 
-        void generateToFile(const std::string& filename, size_t count, int correctString = 0);
+        void generateToFile(const std::string& filename, size_t count = 10, int correctString = 0);
     };
 }

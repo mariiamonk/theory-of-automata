@@ -1,5 +1,6 @@
 CMakeFiles/recognizer.dir/main.cpp.o: \
  /home/mariia/projects/ta/lab1/main.cpp /usr/include/stdc-predef.h \
+ /home/mariia/projects/ta/lab1/functions.h \
  /home/mariia/projects/ta/lab1/regex/regex_recognizer.h \
  /home/mariia/projects/ta/lab1/regex/../statistics/recognizer.h \
  /usr/include/c++/12/iostream \

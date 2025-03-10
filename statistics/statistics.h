@@ -22,7 +22,7 @@ namespace Statistics{
                 return stat;
             }
 
-            bool writeStatToFile(const std::string& filename, const std::string& recognizer_type);
+            void writeStatToFile(const std::string& filename, const std::string& recognizer_type);
         };
 }
     

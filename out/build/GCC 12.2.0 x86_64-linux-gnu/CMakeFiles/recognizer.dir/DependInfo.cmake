@@ -10,9 +10,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/mariia/projects/ta/lab1/flex/flex_recognizer.cpp" "CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o" "gcc" "CMakeFiles/recognizer.dir/flex/flex_recognizer.cpp.o.d"
   "/home/mariia/projects/ta/lab1/flex/lex.yy.cc" "CMakeFiles/recognizer.dir/flex/lex.yy.cc.o" "gcc" "CMakeFiles/recognizer.dir/flex/lex.yy.cc.o.d"
+  "/home/mariia/projects/ta/lab1/functions.cpp" "CMakeFiles/recognizer.dir/functions.cpp.o" "gcc" "CMakeFiles/recognizer.dir/functions.cpp.o.d"
   "/home/mariia/projects/ta/lab1/generator/generator.cpp" "CMakeFiles/recognizer.dir/generator/generator.cpp.o" "gcc" "CMakeFiles/recognizer.dir/generator/generator.cpp.o.d"
   "/home/mariia/projects/ta/lab1/main.cpp" "CMakeFiles/recognizer.dir/main.cpp.o" "gcc" "CMakeFiles/recognizer.dir/main.cpp.o.d"
   "/home/mariia/projects/ta/lab1/regex/regex_recognizer.cpp" "CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o" "gcc" "CMakeFiles/recognizer.dir/regex/regex_recognizer.cpp.o.d"
+  "/home/mariia/projects/ta/lab1/smc/AppClass.cpp" "CMakeFiles/recognizer.dir/smc/AppClass.cpp.o" "gcc" "CMakeFiles/recognizer.dir/smc/AppClass.cpp.o.d"
   "/home/mariia/projects/ta/lab1/statistics/statistics.cpp" "CMakeFiles/recognizer.dir/statistics/statistics.cpp.o" "gcc" "CMakeFiles/recognizer.dir/statistics/statistics.cpp.o.d"
   )
 
