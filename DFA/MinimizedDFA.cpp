@@ -385,4 +385,101 @@ namespace Regex {
 
         return result;
     }
+
+    MinimizedDFA MinimizedDFA::reverseLanguage() const {
+        using namespace Regex;
+
+        std::vector<std::shared_ptr<NFAState>> reversedStates(states.size());
+        for (size_t i = 0; i < states.size(); ++i) {
+            reversedStates[i] = std::make_shared<NFAState>(i);
+        }
+
+        for (size_t i = 0; i < states.size(); ++i) {
+            for (const auto& [symbol, target] : states[i]->transitions) {
+                size_t targetIdx = std::distance(states.begin(), std::find(states.begin(), states.end(), target));
+                reversedStates[targetIdx]->transitions[symbol].insert(reversedStates[i]);
+            }
+        }
+
+        size_t oldStartIdx = std::distance(states.begin(), std::find(states.begin(), states.end(), startState));
+        reversedStates[oldStartIdx]->isFinal = true;
+
+        auto newStart = std::make_shared<NFAState>(states.size());
+        for (size_t i = 0; i < states.size(); ++i) {
+            if (states[i]->isFinal) {
+                newStart->epsilonTransitions.insert(reversedStates[i]);
+            }
+        }
+
+        std::vector<std::shared_ptr<NFAState>> allStates = reversedStates;
+        allStates.push_back(newStart);
+
+        NFA reversedNFA = NFA::fromCustomStates(newStart, allStates);
+
+        // NFA → DFA → MinimizedDFA
+        DFA reversedDFA(reversedNFA);
+        return MinimizedDFA(reversedDFA);
+    }
+
+    MinimizedDFA MinimizedDFA::difference(const MinimizedDFA& other) const {
+        using namespace Regex;
+
+        using StatePair = std::pair<std::shared_ptr<DFAState>, std::shared_ptr<DFAState>>;
+        std::map<StatePair, std::shared_ptr<DFAState>> productStates;
+        std::queue<StatePair> queue;
+        std::vector<std::shared_ptr<DFAState>> allStates;
+
+        auto trap = std::make_shared<DFAState>();
+        for (char c = 0; c < 127; ++c) {
+            trap->transitions[c] = trap;
+        }
+
+        auto startPair = std::make_pair(startState, other.startState);
+        auto start = std::make_shared<DFAState>();
+        start->isFinal = startState->isFinal && !other.startState->isFinal;
+
+        productStates[startPair] = start;
+        queue.push(startPair);
+        allStates.push_back(start);
+
+        while (!queue.empty()) {
+            auto [s1, s2] = queue.front();
+            queue.pop();
+            auto current = productStates[{s1, s2}];
+
+            for (const auto& [symbol, t1] : s1->transitions) {
+                std::shared_ptr<DFAState> t2;
+                if (s2->transitions.count(symbol)) {
+                    t2 = s2->transitions.at(symbol);
+                } else {
+                    t2 = trap;
+                }
+
+                auto key = std::make_pair(t1, t2);
+                if (!productStates.count(key)) {
+                    auto newState = std::make_shared<DFAState>();
+                    newState->isFinal = t1->isFinal && !t2->isFinal;
+                    productStates[key] = newState;
+                    queue.push(key);
+                    allStates.push_back(newState);
+                }
+
+                current->transitions[symbol] = productStates[key];
+            }
+        }
+
+        for (auto& [_, state] : productStates) {
+            for (auto& [sym, target] : state->transitions) {
+                if (target == trap && std::find(allStates.begin(), allStates.end(), trap) == allStates.end()) {
+                    allStates.push_back(trap);
+                    break;
+                }
+            }
+        }
+
+        DFA resultDFA(start, allStates);
+        return MinimizedDFA(resultDFA);
+    }
+
+
 }
