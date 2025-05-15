@@ -9,6 +9,7 @@ namespace AbstractTree {
     private:
         char smb = '\0';
         size_t number = 0;
+        std::string groupRef;
     public:
         CharNode() = default;
         CharNode(char smb);
@@ -27,6 +28,23 @@ namespace AbstractTree {
 
         char getValue() const;
         size_t getNumber() const { return number; }
+
+        void setGroupReference(const std::string& name) {
+            groupRef = name;
+            number = 0;
+        }
+        const std::string& getGroupReference() const { return groupRef; }
+
+        bool isGroupReference() const { return !groupRef.empty(); }
+
+        [[nodiscard]] std::shared_ptr<ASTNode> deepCopy() const {
+            auto copy = std::make_shared<CharNode>(smb);
+            if (isGroupReference()) {
+                copy->setGroupReference(groupRef);
+            }
+            copy->number = number;
+            return copy;
+        }
     };
 }
 #endif //LAB2_CHARNODE_H

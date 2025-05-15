@@ -34,6 +34,8 @@ namespace AbstractTree {
 
         std::set<std::string> groups;
         std::map<std::string, GroupEnumData> grpEnumData;
+        std::map<std::string, std::shared_ptr<ASTNode>> groupDefinitions;
+        std::shared_ptr<ASTNode> copySubtree(const std::shared_ptr<ASTNode>& node) const;
 
         void readGroupName( const std::string& expr, size_t& i,
                             std::stack<StackNode*>&operationsStack,
@@ -51,6 +53,8 @@ namespace AbstractTree {
         AstEnumData getEnumData() const;
 
         std::shared_ptr<ASTNode> getRoot() const { return root; }
+
+        AST();
     };
 
 } // AbstractTree

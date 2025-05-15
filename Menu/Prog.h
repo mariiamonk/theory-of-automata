@@ -33,7 +33,7 @@ private:
         std::string pattern = getInput("Enter regex pattern: ");
         std::string text = getInput("Enter test string: ");
 
-        bool result = Regex::Regex::match(pattern, text);
+        bool result = Regex::Regex(pattern).match(text);
         std::cout << "The string " << (result ? "matches" : "does not match")
                   << " the pattern completely" << std::endl;
     }
@@ -68,14 +68,14 @@ private:
     void reconstructPattern() const {
         std::string pattern = getInput("Enter regex pattern: ");
         Regex::Regex re(pattern);
-        std::cout << "Reconstructed pattern: " << re.toRegex(5) << std::endl;
+        std::cout << "Reconstructed pattern: " << re.toRegex() << std::endl;
     }
 
     void invertPattern() const {
         std::string pattern = getInput("Enter regex pattern: ");
         Regex::Regex re(pattern);
         Regex::Regex inverted = re.inverse();
-        std::cout << "Inverted pattern: " << inverted.toRegex(3) << std::endl;
+        std::cout << "Inverted pattern: " << inverted.toRegex() << std::endl;
     }
 
     void calculateDifference() const {
@@ -86,7 +86,7 @@ private:
         Regex::Regex re2(pattern2);
         Regex::Regex diff = re1.difference(re2);
 
-        std::cout << "Language difference result: " << diff.toRegex(3) << std::endl;
+        std::cout << "Language difference result: " << diff.toRegex() << std::endl;
     }
 
 public:

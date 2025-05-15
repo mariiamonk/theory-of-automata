@@ -20,6 +20,10 @@ namespace AbstractTree {
         }
     }
 
+    std::shared_ptr<ASTNode> OperationNode::deepCopy() const {
+        return std::shared_ptr<ASTNode>();
+    }
+
     Or::Or(std::shared_ptr<ASTNode> left, std::shared_ptr<ASTNode> right) : OperationNode(), left(left), right(right) {}
     void Or::calculateNFL() {
         nullable = left->Nullable() || right->Nullable();

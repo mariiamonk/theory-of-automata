@@ -18,6 +18,7 @@ namespace AbstractTree {
 
         virtual const std::vector<std::shared_ptr<ASTNode>> getArguments() const = 0;
         virtual std::string getOperation() const = 0;
+        virtual std::shared_ptr<ASTNode> deepCopy() const;
 
         void print(std::string prefix) const override;
         void printTree(const std::string& prefix = "", bool isLast = true) const override;
@@ -42,6 +43,10 @@ namespace AbstractTree {
     public:
         Or(std::shared_ptr<ASTNode> left, std::shared_ptr<ASTNode> right);
 
+        std::shared_ptr<ASTNode> deepCopy() const override {
+            return std::make_shared<Or>(left->deepCopy(), right->deepCopy());
+        }
+
         void calculateNFL() override;
 
         std::string getOperation() const override;
@@ -57,6 +62,10 @@ namespace AbstractTree {
     public:
         Concatenation(std::shared_ptr<ASTNode> left, std::shared_ptr<ASTNode> right);
 
+        std::shared_ptr<ASTNode> deepCopy() const override {
+            return std::make_shared<Concatenation>(left->deepCopy(), right->deepCopy());
+        }
+
         void calculateNFL() override;
 
         std::string getOperation() const override;
@@ -70,6 +79,10 @@ namespace AbstractTree {
         std::shared_ptr<ASTNode> left;
     public:
         KliniClosure(std::shared_ptr<ASTNode> left);
+
+        std::shared_ptr<ASTNode> deepCopy() const override {
+            return std::make_shared<KliniClosure>(left->deepCopy());
+        }
 
         void calculateNFL() override;
 
@@ -85,6 +98,10 @@ namespace AbstractTree {
     public:
         PositiveClosure(std::shared_ptr<ASTNode> left);
 
+        std::shared_ptr<ASTNode> deepCopy() const override {
+            return std::make_shared<PositiveClosure>(left->deepCopy());
+        }
+
         void calculateNFL() override;
 
         std::string getOperation() const override;
@@ -99,6 +116,9 @@ namespace AbstractTree {
     public:
         Optional(std::shared_ptr<ASTNode> left);
 
+        std::shared_ptr<ASTNode> deepCopy() const override {
+            return std::make_shared<Optional>(left->deepCopy());
+        }
         void calculateNFL() override;
 
         std::string getOperation() const override;
@@ -113,6 +133,10 @@ namespace AbstractTree {
         std::string name;
     public:
         CatchGroup(const std::string& name, std::shared_ptr<ASTNode> left);
+
+        std::shared_ptr<ASTNode> deepCopy() const {
+            return std::make_shared<CatchGroup>(name, left->deepCopy());
+        }
 
         void calculateNFL() override;
 
@@ -129,23 +153,30 @@ namespace AbstractTree {
         size_t number = 0;
     public:
         AnySymbol() : OperationNode() {}
+
+        void enumerate(size_t num) { number = num; }
+        size_t getNumber() const { return number; }
+
         std::shared_ptr<ASTNode> copy() const override {
             return std::make_shared<AnySymbol>(*this);
         }
 
+        std::shared_ptr<ASTNode> deepCopy() const override {
+            return std::make_shared<AnySymbol>();
+        }
+
         void calculateNFL() override {
-            // Логика для AnySymbol
             firstpos = {number};
             lastpos = {number};
             nullable = false;
         }
 
         const std::vector<std::shared_ptr<ASTNode>> getArguments() const override {
-            return {}; // AnySymbol не имеет аргументов
+            return {};
         }
 
         std::string getOperation() const override {
-            return "."; // Возвращает метасимвол
+            return ".";
         }
         bool Nullable() const override {
             return false;

@@ -5,11 +5,11 @@
 namespace Regex {
 
     Regex::Regex(const std::string& pattern) : pattern(pattern) {
-        ast = std::make_unique<AbstractTree::AST>(pattern);
+        compile();
     }
 
     void Regex::compile() {
-        if (compiled) return;
+        ast = std::make_unique<AbstractTree::AST>(pattern);
         nfa = std::make_unique<NFA>(*ast);
         dfa = std::make_unique<DFA>(*nfa);
         minimizedDfa = std::make_unique<MinimizedDFA>(*dfa);
@@ -59,19 +59,18 @@ namespace Regex {
         return result;
     }
 
-
-    MatchResult Regex::search(const std::string& pattern, const std::string& text) {
-        return Regex(pattern).search(text);
-    }
-
     bool Regex::test(const std::string& text) const {
-        const_cast<Regex*>(this)->compile();
+        if (!compiled) throw std::runtime_error("Regex not compiled");
         return minimizedDfa->simulate(text);
     }
 
-    std::string Regex::toRegex(int k = -1) const {
-        const_cast<Regex*>(this)->compile();
-        return minimizedDfa->toRegex(k);
+    bool Regex::match(const std::string& text) {
+        return test(text);
+    }
+
+    std::string Regex::toRegex() const {
+        if (!compiled) throw std::runtime_error("Regex not compiled");
+        return minimizedDfa->toRegex();
     }
 
     void Regex::printAutomata() const {
@@ -94,24 +93,14 @@ namespace Regex {
     }
 
     Regex Regex::inverse() const {
-        const_cast<Regex*>(this)->compile();
-        Regex result(this->pattern);
-        result.minimizedDfa = std::make_unique<MinimizedDFA>(this->minimizedDfa->complement());
-        result.compiled = true;
-        return result;
+        if (!compiled) throw std::runtime_error("Regex not compiled");
+        MinimizedDFA inverted = minimizedDfa->reverseLanguage();
+        return Regex(std::move(inverted));
     }
 
     Regex Regex::difference(const Regex& other) const {
-        const_cast<Regex*>(this)->compile();
-        const_cast<Regex&>(other).compile();
-        Regex result(this->pattern + " - " + other.pattern);
-        result.minimizedDfa = std::make_unique<MinimizedDFA>(
-                this->minimizedDfa->difference(*other.minimizedDfa));
-        result.compiled = true;
-        return result;
-    }
-
-    bool Regex::match(const std::string& text) const {
-
+        if (!compiled || !other.compiled) throw std::runtime_error("Regex not compiled");
+        MinimizedDFA diff = minimizedDfa->difference(*other.minimizedDfa);
+        return Regex(std::move(diff));
     }
 }

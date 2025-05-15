@@ -16,7 +16,13 @@ namespace AbstractTree {
     }
 
     void CharNode::printTree(const std::string& prefix, bool isLast) const {
-        std::cout << prefix << (isLast ? "└── " : "├── ") << "Char: " << smb << std::endl;
+        if (!groupRef.empty()) {
+            std::cout << prefix << (isLast ? "└── " : "├── ")
+                      << "GroupRef: " << groupRef << std::endl;
+        } else {
+            std::cout << prefix << (isLast ? "└── " : "├── ")
+                      << "Char: " << smb << std::endl;
+        }
     }
 
     bool CharNode::Nullable() const {

@@ -126,8 +126,8 @@ namespace Regex {
         return currentState->isFinal;
     }
 
-    void DFA::visualizeDFA(const std::string& outputFilename = "dfa.png") {
-        std::ofstream dotFile("dfa.dot");
+    void DFA::visualizeDFA(const std::string& outputFilename = "png/dfa.png") {
+        std::ofstream dotFile("dot/dfa.dot");
         if (!dotFile.is_open()) {
             std::cerr << "Failed to create DOT file\n";
             return;
@@ -200,7 +200,7 @@ namespace Regex {
         dotFile << "}\n";
         dotFile.close();
 
-        std::string command = "dot -Tpng dfa.dot -o " + outputFilename;
+        std::string command = "dot -Tpng dot/dfa.dot -o " + outputFilename;
         int result = std::system(command.c_str());
 
         if (result != 0) {

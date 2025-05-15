@@ -3,7 +3,7 @@
 #define ESCSMB '&'
 
 namespace AbstractTree {
-    static std::set<char> specialSymbols = {'-', '|', '+', '*','(', ')', '<', '>', '|', '?', '{', '}', '.', '<', '>'};
+    static std::set<char> specialSymbols = {'-', '|', '+', '*','(', ')', '|', '?', '{', '}', '.', '<'};
 
     bool isSMB(char smb) {
         return ' ' <= smb && smb <= '~';
@@ -68,10 +68,14 @@ namespace AbstractTree {
             throw std::runtime_error("Multiple declaration of capture groups");
 
         groups.insert(name);
+        size_t stackSizeBefore = resultStack.size();
         addOperationToStack(operationsStack, resultStack, new StackCatchGroupNode(name));
         i = name_end;
-    }
 
+        if (resultStack.size() > stackSizeBefore) {
+            groupDefinitions[name] = resultStack.top();
+        }
+    }
 
     AST::AST(const std::string &expr) {
         std::stack<StackNode*> operationsStack;
@@ -121,6 +125,42 @@ namespace AbstractTree {
                         addOperationToStack(operationsStack, resultStack, new StackOrNode());
                         begin_of_token = true;
                         continue;
+                    case '<': {
+                        size_t name_start = i + 1;
+                        size_t name_end = name_start;
+                        while (name_end < expr.size() && isalpha(expr[name_end])) name_end++;
+
+                        if (name_end < expr.size() && expr[name_end] == '>' && name_end > name_start) {
+                            std::string name = expr.substr(name_start, name_end - name_start);
+
+                            if (i > 0 && expr[i-1] == '(') {
+                                if (groups.count(name))
+                                    throw std::runtime_error("Multiple declaration of capture groups");
+
+                                groups.insert(name);
+                                addOperationToStack(operationsStack, resultStack, new StackCatchGroupNode(name));
+                                i = name_end;
+                                begin_of_token = true;
+                                continue;
+                            }
+                            else {
+                                if (!groupDefinitions.count(name))
+                                    throw std::runtime_error("Group definition not found for: " + name);
+
+                                if (!begin_of_token)
+                                    addOperationToStack(operationsStack, resultStack, new StackConcatinationNode());
+
+                                resultStack.push(copySubtree(groupDefinitions[name]));
+                                i = name_end;
+                                begin_of_token = false;
+                                continue;
+                            }
+                        }
+                        if (!begin_of_token)
+                            addOperationToStack(operationsStack, resultStack, new StackConcatinationNode());
+                        resultStack.push(std::make_shared<CharNode>(current));
+                        break;
+                    }
                     case '(':
                         if (!begin_of_token)
                             addOperationToStack(operationsStack, resultStack, new StackConcatinationNode());
@@ -130,17 +170,30 @@ namespace AbstractTree {
                     case ')':
                         if (begin_of_token)
                             throw std::runtime_error("Empty brackets");
-                        while (!operationsStack.empty() && (dynamic_cast<Bracket*>(operationsStack.top()) == nullptr)) {
+
+                        while (!operationsStack.empty() &&
+                               dynamic_cast<Bracket*>(operationsStack.top()) == nullptr) {
                             pushToResult(resultStack, operationsStack.top());
                             delete operationsStack.top();
                             operationsStack.pop();
                         }
+
                         if (operationsStack.empty())
                             throw std::runtime_error("Wrong brackets sequence (too many closing)");
+
                         pushToResult(resultStack, operationsStack.top());
                         delete operationsStack.top();
                         operationsStack.pop();
+
+                        if (!resultStack.empty()) {
+                            auto groupNode = std::dynamic_pointer_cast<CatchGroup>(resultStack.top());
+                            if (groupNode) {
+                                groupDefinitions[groupNode->getName()] = groupNode->getArguments()[0];
+                            }
+                        }
+
                         break;
+
                     case '{': {
                         size_t i_ = i + 1;
                         while (i_ < expr.size() && isdigit(expr[i_])) ++i_;
@@ -193,48 +246,46 @@ namespace AbstractTree {
     }
 
     size_t AST::calculateNode(ASTNode* node, size_t num) {
-        if (dynamic_cast<CharNode*>(node)) {
-            auto* node_ = dynamic_cast<CharNode*>(node);
-            if (!node_->Nullable()) {
-                node_->enumerate(num);
+        if (auto* charNode = dynamic_cast<CharNode*>(node)) {
+            if (charNode->isGroupReference()) {
+                return num;
+            }
+
+            if (!charNode->Nullable()) {
+                charNode->enumerate(num);
                 enumData.folowPos.resize(num);
-                enumData.character_index[node_->getValue()].insert(num);
+                enumData.character_index[charNode->getValue()].insert(num);
                 return num + 1;
             }
             return num;
         }
-        else if (dynamic_cast<OperationNode*>(node)) {
-            auto* node_ = dynamic_cast<OperationNode*>(node);
-            for (auto& arg : node_->getArguments()) {
+        else if (auto* opNode = dynamic_cast<OperationNode*>(node)) {
+            for (auto& arg : opNode->getArguments()) {
                 num = calculateNode(arg.get(), num);
             }
-            node_->calculateNFL();
+            opNode->calculateNFL();
 
-            if (dynamic_cast<Concatenation*>(node)) {
-                auto args = node_->getArguments();
-                for (auto& last : args[0]->Lastpos()) {
-                    auto f = args[1]->Firstpos();
-                    enumData.folowPos[last-1].insert(f.begin(), f.end());
+            if (auto* concat = dynamic_cast<Concatenation*>(opNode)) {
+                auto args = opNode->getArguments();
+                for (auto last : args[0]->Lastpos()) {
+                    auto first = args[1]->Firstpos();
+                    enumData.folowPos[last-1].insert(first.begin(), first.end());
                 }
             }
-            else if (dynamic_cast<KliniClosure*>(node)) {
-                auto args = node_->getArguments();
-                for (auto& last : args[0]->Lastpos()) {
-                    auto f = args[0]->Firstpos();
-                    enumData.folowPos[last-1].insert(f.begin(), f.end());
+            else if (auto* klini = dynamic_cast<KliniClosure*>(opNode)) {
+                auto args = opNode->getArguments();
+                for (auto last : args[0]->Lastpos()) {
+                    auto first = args[0]->Firstpos();
+                    enumData.folowPos[last-1].insert(first.begin(), first.end());
                 }
             }
-            else if (auto* group = dynamic_cast<CatchGroup*>(node)) {
+            else if (auto* group = dynamic_cast<CatchGroup*>(opNode)) {
                 enumData.groupsData[group->getName()].beginWith = group->Firstpos();
                 enumData.groupsData[group->getName()].endWith = group->Lastpos();
 
-                // Заполняем insideIn (все позиции между first и last)
                 std::set<size_t> visited;
                 std::queue<size_t> queue;
-
-                for (size_t pos : group->Firstpos()) {
-                    queue.push(pos);
-                }
+                for (size_t pos : group->Firstpos()) queue.push(pos);
 
                 while (!queue.empty()) {
                     size_t current = queue.front();
@@ -256,9 +307,12 @@ namespace AbstractTree {
             }
             return num;
         }
-        else {
-            throw std::runtime_error("Error of calculate Node");
-        }
+        throw std::runtime_error("Error of calculate Node");
+    }
+
+    std::shared_ptr<ASTNode> AST::copySubtree(const std::shared_ptr<ASTNode>& node) const {
+        if (!node) return nullptr;
+        return node->deepCopy();
     }
 
     void AST::print() const {
@@ -270,5 +324,9 @@ namespace AbstractTree {
 
     AstEnumData AST::getEnumData() const {
         return enumData;
+    }
+
+    AST::AST() {
+
     }
 }

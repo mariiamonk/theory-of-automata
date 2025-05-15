@@ -7,7 +7,6 @@ namespace Regex {
     using namespace AbstractTree;
 
     NFA::NFA(const AbstractTree::AST& ast) {
-        // Создаем начальное и конечное состояния
         startState = std::make_shared<NFAState>(stateCounter++);
         endState = std::make_shared<NFAState>(stateCounter++);
         endState->isFinal = true;
@@ -116,6 +115,13 @@ namespace Regex {
         }
     }
 
+    NFA NFA::fromCustomStates(const std::shared_ptr<NFAState>& start, const std::vector<std::shared_ptr<NFAState>>& states) {
+        NFA nfa = NFA(AST());
+        nfa.startState = start;
+        nfa.states = states;
+        return nfa;
+    }
+
     void NFA::print() const {
         std::cout << "NFA States:" << std::endl;
         for (const auto& state : states) {
@@ -177,8 +183,8 @@ namespace Regex {
         out.close();
     }
 
-    void NFA::visualizeNFA(const std::string& outputFilename = "nfa.png") {
-        std::string dotFilename = "nfa.dot";
+    void NFA::visualizeNFA(const std::string& outputFilename = "png/nfa.png") {
+        std::string dotFilename = "dot/nfa.dot";
         generateDotFile(dotFilename);
 
         std::string command = "dot -Tpng " + dotFilename + " -o " + outputFilename;

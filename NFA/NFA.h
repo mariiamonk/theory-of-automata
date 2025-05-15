@@ -31,16 +31,16 @@ namespace Regex {
         size_t stateCounter = 0;
 
         void buildFromAST(const std::shared_ptr<AbstractTree::ASTNode>& node);
-        void processNode(const std::shared_ptr<AbstractTree::ASTNode>& node,
-                         std::shared_ptr<NFAState> start,
-                         std::shared_ptr<NFAState> end);
+        void processNode(const std::shared_ptr<AbstractTree::ASTNode>& node, std::shared_ptr<NFAState> start, std::shared_ptr<NFAState> end);
 
     public:
         explicit NFA(const AbstractTree::AST& ast);
 
-        std::shared_ptr<NFAState> getStartState() const { return startState; }
-        std::shared_ptr<NFAState> getEndState() const { return endState; }
-        const std::vector<std::shared_ptr<NFAState>>& getStates() const { return states; }
+        [[nodiscard]] std::shared_ptr<NFAState> getStartState() const { return startState; }
+        [[nodiscard]] std::shared_ptr<NFAState> getEndState() const { return endState; }
+        [[nodiscard]] const std::vector<std::shared_ptr<NFAState>>& getStates() const { return states; }
+
+        static NFA fromCustomStates(const std::shared_ptr<NFAState>& start, const std::vector<std::shared_ptr<NFAState>>& states);
 
         void generateDotFile(const std::string& filename) const;
         void visualizeNFA(const std::string& outputFilename);

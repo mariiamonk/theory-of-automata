@@ -118,96 +118,6 @@ namespace Regex {
         }
     }
 
-    MinimizedDFA MinimizedDFA::complement() const {
-        MinimizedDFA result(*this);
-
-        // Глубокая копия состояний
-        std::unordered_map<std::shared_ptr<DFAState>, std::shared_ptr<DFAState>> oldToNew;
-
-        result.states.clear();
-
-        // Создание новых состояний с инверсией флага isFinal
-        for (const auto& oldState : this->states) {
-            auto newState = std::make_shared<DFAState>();
-            newState->isFinal = !oldState->isFinal;
-            oldToNew[oldState] = newState;
-            result.states.push_back(newState);
-        }
-
-        // Перенос переходов
-        for (size_t i = 0; i < this->states.size(); ++i) {
-            const auto& oldState = this->states[i];
-            auto& newState = result.states[i];
-            for (const auto& [symbol, target] : oldState->transitions) {
-                newState->transitions[symbol] = oldToNew.at(target);
-            }
-        }
-
-        // Установка нового стартового состояния
-        result.startState = oldToNew.at(this->startState);
-
-        return result;
-    }
-
-    MinimizedDFA MinimizedDFA::intersection(const MinimizedDFA& other) const {
-        using StatePair = std::pair<std::shared_ptr<DFAState>, std::shared_ptr<DFAState>>;
-
-        std::map<StatePair, std::shared_ptr<DFAState>> stateMap;
-        std::queue<StatePair> queue;
-
-        auto start1 = this->startState;
-        auto start2 = other.startState;
-
-        auto start = std::make_shared<DFAState>();
-        start->isFinal = start1->isFinal && start2->isFinal;
-
-        MinimizedDFA result(*this);  // Создаем временную копию для заготовки
-        result.states.clear();
-        result.startState = start;
-
-        stateMap[{start1, start2}] = start;
-        result.states.push_back(start);
-        queue.push({start1, start2});
-
-        while (!queue.empty()) {
-            auto [s1, s2] = queue.front();
-            queue.pop();
-            auto curr = stateMap[{s1, s2}];
-
-            // Объединяем алфавиты обоих автоматов
-            std::set<char> symbols;
-            for (const auto& [c, _] : s1->transitions) symbols.insert(c);
-            for (const auto& [c, _] : s2->transitions) symbols.insert(c);
-
-            for (char symbol : symbols) {
-                auto it1 = s1->transitions.find(symbol);
-                auto it2 = s2->transitions.find(symbol);
-                if (it1 != s1->transitions.end() && it2 != s2->transitions.end()) {
-                    auto t1 = it1->second;
-                    auto t2 = it2->second;
-                    StatePair nextPair = {t1, t2};
-
-                    if (stateMap.find(nextPair) == stateMap.end()) {
-                        auto newState = std::make_shared<DFAState>();
-                        newState->isFinal = t1->isFinal && t2->isFinal;
-                        stateMap[nextPair] = newState;
-                        result.states.push_back(newState);
-                        queue.push(nextPair);
-                    }
-
-                    curr->transitions[symbol] = stateMap[nextPair];
-                }
-            }
-        }
-
-        return result;
-    }
-
-
-    MinimizedDFA MinimizedDFA::difference(const MinimizedDFA& other) const {
-        MinimizedDFA complementB = other.complement();
-        return this->intersection(complementB);
-    }
 
     void MinimizedDFA::print() const {
         std::cout << "Minimized DFA States:" << std::endl;
@@ -237,8 +147,8 @@ namespace Regex {
         return current->isFinal;
     }
 
-    void MinimizedDFA::visualize(const std::string& outputFilename = "min_dfa.png") const {
-        std::ofstream dot("min_dfa.dot");
+    void MinimizedDFA::visualize(const std::string& outputFilename = "png/min_dfa.png") const {
+        std::ofstream dot("dot/min_dfa.dot");
         if (!dot) {
             std::cerr << "Error creating DOT file\n";
             return;
@@ -277,7 +187,7 @@ namespace Regex {
         dot << "}\n";
         dot.close();
 
-        std::string cmd = "dot -Tpng min_dfa.dot -o " + outputFilename;
+        std::string cmd = "dot -Tpng dot/min_dfa.dot -o " + outputFilename;
         if (system(cmd.c_str()) != 0) {
             std::cerr << "Graphviz error. Check if 'dot' is installed.\n";
         } else {
@@ -339,7 +249,7 @@ namespace Regex {
 
 
 
-    std::string MinimizedDFA::simplifyRegex(const std::string& regex) const {
+    std::string MinimizedDFA::simplifyRegex(const std::string& regex) {
         if (regex.empty()) return "";
 
         std::string result = regex;

@@ -22,6 +22,8 @@ namespace AbstractTree {
 
         virtual void printTree(const std::string& prefix = "", bool isLast = true) const = 0;
 
+        virtual std::shared_ptr<ASTNode> deepCopy() const = 0;
+
         virtual ~ASTNode() = default;
     };
 

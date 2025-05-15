@@ -35,6 +35,10 @@ namespace Regex {
     public:
         explicit Regex(const std::string& pattern);
 
+        Regex(MinimizedDFA&& mdfa) : pattern(""), compiled(true) {
+            minimizedDfa = std::make_unique<MinimizedDFA>(std::move(mdfa));
+        }
+
         Regex(const Regex&) = delete;
         Regex& operator=(const Regex&) = delete;
 
@@ -42,21 +46,16 @@ namespace Regex {
         Regex& operator=(Regex&&) = default;
 
         MatchResult search(const std::string& text) const;
-        static MatchResult search(const std::string& pattern, const std::string& text);
 
         bool test(const std::string& text) const;
-        std::string toRegex(int) const;
+        std::string toRegex() const;
 
         void printAutomata() const;
 
         Regex inverse() const;
         Regex difference(const Regex& other) const;
 
-        bool match(const std::string& text) const;
-
-        static bool match(const std::string& pattern, const std::string& text) {
-            return Regex(pattern).match(text);
-        }
+        bool match(const std::string& text);
     };
 
 } // namespace Regex
