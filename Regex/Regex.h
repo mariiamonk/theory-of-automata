@@ -12,15 +12,6 @@
 
 namespace Regex {
 
-    class MatchResult {
-    public:
-        bool success;
-        std::string match;
-        std::map<std::string, std::string> groups;
-
-        explicit operator bool() const { return success; }
-    };
-
     class Regex {
     private:
         std::string pattern;
@@ -30,14 +21,16 @@ namespace Regex {
         std::unique_ptr<MinimizedDFA> minimizedDfa;
         bool compiled = false;
 
+    public:
+        explicit Regex(std::string  pattern);
+
         void compile();
 
-    public:
-        explicit Regex(const std::string& pattern);
-
-        Regex(MinimizedDFA&& mdfa) : pattern(""), compiled(true) {
+        Regex(MinimizedDFA&& mdfa) : pattern(""), compiled(true), ast(), nfa(), dfa(){
             minimizedDfa = std::make_unique<MinimizedDFA>(std::move(mdfa));
         }
+
+        bool isCompiled() const { return compiled; }
 
         Regex(const Regex&) = delete;
         Regex& operator=(const Regex&) = delete;
@@ -45,18 +38,19 @@ namespace Regex {
         Regex(Regex&&) = default;
         Regex& operator=(Regex&&) = default;
 
-        MatchResult search(const std::string& text) const;
+        [[nodiscard]] bool test(const std::string& text) const;
+        [[nodiscard]] std::string toRegex() const;
 
-        bool test(const std::string& text) const;
-        std::string toRegex() const;
+        void printAutomata(const std::string& name) const;
 
-        void printAutomata() const;
-
-        Regex inverse() const;
-        Regex difference(const Regex& other) const;
+        [[nodiscard]] Regex inverse() const;
+        [[nodiscard]] Regex difference(const Regex& other) const;
 
         bool match(const std::string& text);
     };
+
+    bool search(const Regex& re, const std::string& text);
+    bool search(const Regex& re, const std::string& text, std::string& match);
 
 } // namespace Regex
 

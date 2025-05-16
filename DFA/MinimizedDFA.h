@@ -29,6 +29,7 @@ namespace Regex {
 
     public:
         explicit MinimizedDFA(const DFA& dfa);
+        MinimizedDFA() = default;
 
         [[nodiscard]] std::shared_ptr<DFAState> getStartState() const { return startState; }
         [[nodiscard]] const std::vector<std::shared_ptr<DFAState>>& getStates() const { return states; }

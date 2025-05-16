@@ -198,7 +198,7 @@ namespace Regex {
 
 namespace Regex {
 
-    std::string MinimizedDFA::toRegex(int k) const {
+    std::string MinimizedDFA::toRegex(int) const {
         size_t n = states.size();
         std::vector<std::vector<std::string>> R(n, std::vector<std::string>(n));
 
@@ -326,7 +326,6 @@ namespace Regex {
 
         NFA reversedNFA = NFA::fromCustomStates(newStart, allStates);
 
-        // NFA → DFA → MinimizedDFA
         DFA reversedDFA(reversedNFA);
         return MinimizedDFA(reversedDFA);
     }
@@ -390,6 +389,4 @@ namespace Regex {
         DFA resultDFA(start, allStates);
         return MinimizedDFA(resultDFA);
     }
-
-
 }

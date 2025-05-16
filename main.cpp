@@ -1,13 +1,7 @@
 #include <iostream>
 #include "Menu/Prog.h"
 void testAutoPrint(){
-    std::cout << "=== Testing print ast, nfa, dfa ===" << std::endl;
-//    {
-//        std::string re = (".");
-//        AbstractTree::AST ast(re);
-//        ast.print();
-//        std::cout << std::endl;
-//    }
+    std::cout << "=== Testing min ===" << std::endl;
         std::string re = ("a+b|a*b|aaab");
         //std::string re = "a*bcd?";
         std::cout << "a+b|a*b|aaab" << std::endl;
@@ -29,23 +23,6 @@ void testAutoPrint(){
         Regex::MinimizedDFA minDfa(dfa);
         minDfa.print();
         minDfa.visualize("png/min_dfa.png");
-//        std::cout << std::endl;
-//        Regex::Regex r("a+b|a*b|aaab");
-        std::cout << "inv" << std::endl;
-    Regex::MinimizedDFA resinv = minDfa.reverseLanguage();
-
-        resinv.print();
-        resinv.visualize("png/min_dfa_inv.png");
-
-        std::cout << "dif" << std::endl;
-        AbstractTree::AST ast2("bcds");
-        Regex::NFA nfa2(ast2);
-        Regex::DFA dfa2(nfa2);
-        Regex::MinimizedDFA mind2(dfa2);
-    Regex::MinimizedDFA resdif = minDfa.difference(mind2);
-
-    resdif.print();
-    resdif.visualize("png/min_dfa_dif.png");
 
     Regex::Regex r("a+b|a*b|aaab");
        std::cout << "Recovered regex: " << r.toRegex() << std::endl;
@@ -53,10 +30,25 @@ void testAutoPrint(){
 
 int main() {
     try {
-         Regex::Regex re("((<g>reg))(a|b)-c+s?r{2,4}<g>");
-         re.printAutomata();
-        bool result = re.match("regbcrrreg");
-        std::cout << (result ? "YES" : "NO") << std::endl;
+        //testAutoPrint();
+         Regex::Regex re("((<g>reg))(a|b)-c+s?r{2,4}&.<g>");
+         re.printAutomata("first-");
+
+         std::cout <<"((<g>reg))(a|b)-c+s?r{2,4}&.<g> in asdsfdsfbhvregbcrr.regbfhsdbfsbdfsdbf"<< ((Regex::search(re, "asdsfdsfbhvregbcrr.regbfhsdbfsbdfsdbf")) ? " found" : " not found") << std::endl;
+         std::string match;
+         Regex::search(re, "asdsfdsfbhvregbcrrDregbfhsdbfsbdfsdbf=regbcrr.reg=", match);
+         std::cout << match << std::endl;
+
+        Regex::Regex a("a*b");
+        Regex::Regex b("ab+");
+
+        std::cout << "a*b to regex: " << a.toRegex() << std::endl;
+
+        a.printAutomata("a");
+        b.printAutomata("b");
+
+        a.inverse().printAutomata("inv_a-");
+        a.difference(b).printAutomata("dif_a-b-");
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
