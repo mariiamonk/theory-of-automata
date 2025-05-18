@@ -63,19 +63,107 @@ namespace Regex {
         return false;
     }
 
-    bool search(const Regex& re, const std::string& text, std::string& match) {
-        if (!re.isCompiled()) throw std::runtime_error("Regex not compiled");
+    bool search(const std::string& text, Match& match, const Regex& regex) {
+        struct StateConfig {
+            std::shared_ptr<NFAState> state;
+            size_t pos;
+            std::map<std::string, size_t> groupStart;
+            std::map<std::string, size_t> groupEnd;
+        };
+
+        auto epsilonClosure = [](const std::set<std::shared_ptr<NFAState>>& states) {
+            std::set<std::shared_ptr<NFAState>> closure = states;
+            std::stack<std::shared_ptr<NFAState>> stack;
+            for (const auto& s : states) stack.push(s);
+
+            while (!stack.empty()) {
+                auto state = stack.top();
+                stack.pop();
+                for (const auto& next : state->epsilonTransitions) {
+                    if (closure.insert(next).second) {
+                        stack.push(next);
+                    }
+                }
+            }
+            return closure;
+        };
+
+        auto& nfa = regex.getNFA();
+        auto startState = nfa.getStartState();
 
         for (size_t i = 0; i < text.size(); ++i) {
-            for (size_t len = 1; len <= text.size() - i; ++len) {
-                std::string sub = text.substr(i, len);
-                if (re.test(sub)) {
-                    match = sub;
+            std::queue<StateConfig> q;
+            std::set<std::shared_ptr<NFAState>> initialClosure = epsilonClosure({startState});
+
+            for (const auto& state : initialClosure) {
+                q.push({state, i, {}, {}});
+            }
+
+            while (!q.empty()) {
+                StateConfig config = q.front();
+                q.pop();
+
+                auto state = config.state;
+                size_t pos = config.pos;
+
+                if (state->isFinal) {
+                    std::vector<std::string> groups;
+
+                    for (const auto& [name, startPos] : config.groupStart) {
+                        if (config.groupEnd.count(name)) {
+                            size_t endPos = config.groupEnd.at(name);
+                            if (endPos > startPos && endPos <= text.size()) {
+                                groups.push_back(text.substr(startPos, endPos - startPos));
+                            } else {
+                                groups.push_back("");
+                            }
+                        } else {
+                            groups.push_back("");
+                        }
+                    }
+
+                    match.set(text.substr(i, pos - i), std::move(groups));
                     return true;
+                }
+
+                // Epsilon transitions
+                for (const auto& next : state->epsilonTransitions) {
+                    auto newStart = config.groupStart;
+                    auto newEnd = config.groupEnd;
+
+                    if (!next->groupStart.empty() && newStart.count(next->groupStart) == 0) {
+                        newStart[next->groupStart] = pos;
+                    }
+                    if (!next->groupEnd.empty() && newEnd.count(next->groupEnd) == 0) {
+                        newEnd[next->groupEnd] = pos;
+                    }
+
+                    q.push({next, pos, std::move(newStart), std::move(newEnd)});
+                }
+
+                // Symbol transitions
+                if (pos < text.size()) {
+                    char c = text[pos];
+                    auto it = state->transitions.find(c);
+                    if (it != state->transitions.end()) {
+                        for (const auto& next : it->second) {
+                            auto newStart = config.groupStart;
+                            auto newEnd = config.groupEnd;
+
+                            if (!next->groupStart.empty() && newStart.count(next->groupStart) == 0) {
+                                newStart[next->groupStart] = pos;
+                            }
+                            if (!next->groupEnd.empty() && newEnd.count(next->groupEnd) == 0) {
+                                newEnd[next->groupEnd] = pos + 1;
+                            }
+
+                            q.push({next, pos + 1, std::move(newStart), std::move(newEnd)});
+                        }
+                    }
                 }
             }
         }
-        match.clear();
         return false;
     }
+
 }

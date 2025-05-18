@@ -41,16 +41,16 @@ namespace Regex {
             const auto& args = opNode->getArguments();
 
             if (dynamic_cast<Or*>(opNode.get())) {
-            auto split = std::make_shared<NFAState>(stateCounter++);
-            auto merge = std::make_shared<NFAState>(stateCounter++);
-            states.push_back(split);
-            states.push_back(merge);
+                auto split = std::make_shared<NFAState>(stateCounter++);
+                auto merge = std::make_shared<NFAState>(stateCounter++);
+                states.push_back(split);
+                states.push_back(merge);
 
-            start->epsilonTransitions.insert(split);
-            processNode(args[0], split, merge);
-            processNode(args[1], split, merge);
-            merge->epsilonTransitions.insert(end);
-        }
+                start->epsilonTransitions.insert(split);
+                processNode(args[0], split, merge);
+                processNode(args[1], split, merge);
+                merge->epsilonTransitions.insert(end);
+            }
             else if (dynamic_cast<Concatenation*>(opNode.get())) {
                 auto mid = std::make_shared<NFAState>(stateCounter++);
                 states.push_back(mid);
@@ -77,18 +77,18 @@ namespace Regex {
                 next->epsilonTransitions.insert(end);
             }
             else if (dynamic_cast<Optional*>(opNode.get())) {
-                    auto split = std::make_shared<NFAState>(stateCounter++);
-                    auto merge = std::make_shared<NFAState>(stateCounter++);
-                    states.push_back(split);
-                    states.push_back(merge);
+                auto split = std::make_shared<NFAState>(stateCounter++);
+                auto merge = std::make_shared<NFAState>(stateCounter++);
+                states.push_back(split);
+                states.push_back(merge);
 
-                    start->epsilonTransitions.insert(split);
+                start->epsilonTransitions.insert(split);
 
-                    processNode(args[0], split, merge);
+                processNode(args[0], split, merge);
 
-                    split->epsilonTransitions.insert(merge);
+                split->epsilonTransitions.insert(merge);
 
-                    merge->epsilonTransitions.insert(end);
+                merge->epsilonTransitions.insert(end);
             }
             else if (dynamic_cast<PositiveClosure*>(opNode.get())) {
                 // A+
@@ -106,12 +106,24 @@ namespace Regex {
                 processNode(args[0], loopStart, loopEnd);
             }
             else if (auto group = std::dynamic_pointer_cast<CatchGroup>(opNode)) {
-                start->groupStart = group->getName();
-                end->groupEnd = group->getName();
+                // Создаём два промежуточных состояния
+                auto groupStartState = std::make_shared<NFAState>(stateCounter++);
+                auto groupEndState = std::make_shared<NFAState>(stateCounter++);
 
-                processNode(args[0], start, end);
+                groupStartState->groupStart = group->getName();
+                groupEndState->groupEnd = group->getName();
 
+                states.push_back(groupStartState);
+                states.push_back(groupEndState);
+
+                // Подключаем их к цепочке
+                start->epsilonTransitions.insert(groupStartState);
+                groupEndState->epsilonTransitions.insert(end);
+
+                processNode(args[0], groupStartState, groupEndState);
             }
+
+
         }
     }
 

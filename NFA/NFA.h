@@ -23,6 +23,7 @@ namespace Regex {
 
         explicit NFAState(size_t id) : id(id) {}
     };
+
     class NFA {
     private:
         std::shared_ptr<NFAState> startState;

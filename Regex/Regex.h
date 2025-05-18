@@ -12,6 +12,38 @@
 
 namespace Regex {
 
+    class Match {
+    private:
+        std::string fullMatch;
+        std::vector<std::string> groups;
+
+    public:
+        Match() = default;
+
+        void set(const std::string& full, std::vector<std::string> captures) {
+            fullMatch = full;
+            groups = std::move(captures);
+
+            std::cout << "Match groups captured: ";
+            for (const auto& g : groups) {
+                std::cout << "[" << g << "] ";
+            }
+            std::cout << "\n";
+        }
+
+        const std::string& str() const { return fullMatch; }
+        const std::string& operator[](size_t i) const {
+            if (i >= groups.size()) throw std::out_of_range("Match group index out of range");
+            return groups[i];
+        }
+        size_t size() const { return groups.size(); }
+
+
+        std::vector<std::string>::const_iterator begin() const { return groups.begin(); }
+        std::vector<std::string>::const_iterator end() const { return groups.end(); }
+    };
+
+
     class Regex {
     private:
         std::string pattern;
@@ -31,8 +63,14 @@ namespace Regex {
         }
 
         bool isCompiled() const { return compiled; }
+        NFA& getNFA() const {
+            if (!compiled || !nfa) {
+                throw std::runtime_error("Regex not compiled or NFA not available");
+            }
+            return *nfa;
+        }
 
-        Regex(const Regex&) = delete;
+        Regex(const Regex&) = default;
         Regex& operator=(const Regex&) = delete;
 
         Regex(Regex&&) = default;
@@ -50,7 +88,7 @@ namespace Regex {
     };
 
     bool search(const Regex& re, const std::string& text);
-    bool search(const Regex& re, const std::string& text, std::string& match);
+    bool search(const std::string& text, Match& match, const Regex& regex);
 
 } // namespace Regex
 

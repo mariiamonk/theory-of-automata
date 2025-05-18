@@ -31,13 +31,10 @@ void testAutoPrint(){
 int main() {
     try {
         //testAutoPrint();
-         Regex::Regex re("((<g>reg))(a|b)-c+s?r{2,4}&.<g>");
-         re.printAutomata("first-");
-
-         std::cout <<"((<g>reg))(a|b)-c+s?r{2,4}&.<g> in asdsfdsfbhvregbcrr.regbfhsdbfsbdfsdbf"<< ((Regex::search(re, "asdsfdsfbhvregbcrr.regbfhsdbfsbdfsdbf")) ? " found" : " not found") << std::endl;
-         std::string match;
-         Regex::search(re, "asdsfdsfbhvregbcrrDregbfhsdbfsbdfsdbf=regbcrr.reg=", match);
-         std::cout << match << std::endl;
+         Regex::Regex re("((<g>reg))(a|b)-c+s?r{2,4}&.<g>");Regex::Match match;
+         Regex::search("asdsfdsfbhvregbcrrrr.regbfhsdbfsbdfsdbf=regbcrr.reg=", match, re);
+         std::cout << match.str() << std::endl;
+         std::cout << match[0] << std::endl;
 
         Regex::Regex a("a*b");
         Regex::Regex b("ab+");
