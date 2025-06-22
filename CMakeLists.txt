@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.25.1)
 project(theory-of-automata)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -25,8 +25,6 @@ add_executable(theory-of-automata main.cpp
         DFA/MinimizedDFA.h
         Regex/Regex.cpp
         Regex/Regex.h
-        Menu/Prog.cpp
-        Menu/Prog.h
         tests/tests_a/test.cpp
         tests/tests_a/test_reg.cpp
         tests/tests_a/test_nfa.cpp
