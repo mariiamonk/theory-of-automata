@@ -1,5 +1,11 @@
 # Библиотека для работы с регулярными выражениями
+[![C++ Standard](https://img.shields.io/badge/C++-20-blue?logo=cplusplus)]()
+[![License](https://img.shields.io/badge/License-MIT-green?logo=opensourceinitiative)]()
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?logo=githubactions)]()
+[![Code Size](https://img.shields.io/github/languages/code-size/durachill/BST-C)]()
+[![Last Commit](https://img.shields.io/github/last-commit/durachill/BST-C?color=blue)]()
 
+### О проекте
 Библиотека для работы с регулярными выражениями, реализующая полный цикл обработки: от синтаксического анализа до компиляции в детерминированные конечные автоматы (ДКА). Поддерживает все основные операции, включая именованные группы захвата, диапазонные повторы и сложные комбинации языков.
 
 ## Поддерживаемые операции
