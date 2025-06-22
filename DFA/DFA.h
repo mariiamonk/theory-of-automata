@@ -21,6 +21,7 @@ namespace Regex {
 
         std::set<size_t> epsilonClosure(const NFA& nfa, const std::set<size_t>& states);
         std::set<size_t> move(const NFA& nfa, const std::set<size_t>& states, char c);
+
     public:
         explicit DFA(const NFA& nfa);
         DFA(std::shared_ptr<DFAState> start, const std::vector<std::shared_ptr<DFAState>>& states): startState(std::move(start)), states(states) {}
@@ -32,6 +33,8 @@ namespace Regex {
         void visualizeDFA(const std::string&);
 
         [[nodiscard]] bool simulate(const std::string& input) const;
+
+        
     };
 }
 #endif // DFA_H

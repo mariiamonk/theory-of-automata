@@ -3,6 +3,10 @@ project(theory-of-automata)
 
 set(CMAKE_CXX_STANDARD 20)
 
+add_subdirectory(tests/lib/googletest)
+include_directories(tests/lib/googletest/googletest/include)
+include_directories(tests/lib/googletest/googlemock/include)
+
 add_executable(theory-of-automata main.cpp
         AST/AST.cpp
         AST/AST.h
@@ -23,4 +27,9 @@ add_executable(theory-of-automata main.cpp
         Regex/Regex.h
         Menu/Prog.cpp
         Menu/Prog.h
+        tests/tests_a/test.cpp
+        tests/tests_a/test_reg.cpp
+        tests/tests_a/test_nfa.cpp
 )
+
+target_link_libraries(theory-of-automata gtest gtest_main)

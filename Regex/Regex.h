@@ -23,12 +23,6 @@ namespace Regex {
         void set(const std::string& full, std::vector<std::string> captures) {
             fullMatch = full;
             groups = std::move(captures);
-
-            std::cout << "Match groups captured: ";
-            for (const auto& g : groups) {
-                std::cout << "[" << g << "] ";
-            }
-            std::cout << "\n";
         }
 
         const std::string& str() const { return fullMatch; }
@@ -77,12 +71,21 @@ namespace Regex {
         Regex& operator=(Regex&&) = default;
 
         [[nodiscard]] bool test(const std::string& text) const;
-        [[nodiscard]] std::string toRegex() const;
+        std::string toRegex() const;
 
         void printAutomata(const std::string& name) const;
 
         [[nodiscard]] Regex inverse() const;
         [[nodiscard]] Regex difference(const Regex& other) const;
+        const std::unique_ptr<AbstractTree::AST>& getAST() const {
+            if (!compiled || !ast) {
+                throw std::runtime_error("Regex not compiled or AST not available");
+            }
+            return ast;
+        }
+        const std::string getPattern() const{
+            return pattern;
+        }
 
         bool match(const std::string& text);
     };

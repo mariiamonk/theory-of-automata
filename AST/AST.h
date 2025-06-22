@@ -19,11 +19,20 @@ namespace AbstractTree {
         std::set<size_t> endWith;
     };
 
+    struct GroupPositionInfo {
+        std::set<size_t> start_positions;
+        std::set<size_t> end_positions;
+        std::set<size_t> inner_positions;
+        bool is_named;
+        std::string name;
+    };
+
     struct AstEnumData {
         std::map<char, std::set<size_t>> character_index;
         std::vector<std::set<size_t>> folowPos;
         std::set<size_t> rootFirstpos;
         std::map<std::string, GroupEnumData> groupsData;
+        std::vector<GroupPositionInfo> groups_info;
     };
 
     class AST {
@@ -35,16 +44,12 @@ namespace AbstractTree {
         std::set<std::string> groups;
         std::map<std::string, GroupEnumData> grpEnumData;
         std::map<std::string, std::shared_ptr<ASTNode>> groupDefinitions;
-        std::shared_ptr<ASTNode> copySubtree(const std::shared_ptr<ASTNode>& node) const;
-
-        void readGroupName( const std::string& expr, size_t& i,
-                            std::stack<StackNode*>&operationsStack,
-                            std::stack<std::shared_ptr<ASTNode>>& resultStack);
 
         size_t calculateNode(ASTNode* node, size_t num);
 
     public:
         AST(const std::string& expr);
+        AST() = default;
 
         void calculateFollowpos();
 
@@ -54,7 +59,11 @@ namespace AbstractTree {
 
         std::shared_ptr<ASTNode> getRoot() const { return root; }
 
-        AST();
+        std::shared_ptr<ASTNode> copySubtree(const std::shared_ptr<ASTNode>& node) const;
+
+        void readGroupName( const std::string& expr, size_t& i,
+                            std::stack<StackNode*>&operationsStack,
+                            std::stack<std::shared_ptr<ASTNode>>& resultStack);
     };
 
 } // AbstractTree

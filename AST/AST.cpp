@@ -12,6 +12,21 @@ namespace AbstractTree {
         return specialSymbols.contains(smb);
     }
 
+    void AST::calculateFollowpos() {
+        if (!root) {
+            enumData = AstEnumData();
+            return;
+        }
+
+        enumData = AstEnumData();
+
+        try {
+            calculateNode(root.get(), 1);
+        } catch (const std::exception& e) {
+            std::cerr << "Error in calculateFollowpos: " << e.what() << std::endl;
+            enumData = AstEnumData();
+        }
+    }
     void pushToResult(std::stack<std::shared_ptr<ASTNode>>& resultStack, StackNode* operation) {
         size_t argumentsCount = operation->getArgsCount();
         if (argumentsCount == 0) {
@@ -54,6 +69,11 @@ namespace AbstractTree {
             return;
         }
 
+        if (i == 0 || expr[i-1] != '(') {
+            addOperationToStack(operationsStack, resultStack, new Bracket());
+            return;
+        }
+
         size_t name_start = i + 2;
         size_t name_end = name_start;
         while (name_end < expr.size() && isalpha(expr[name_end])) name_end++;
@@ -91,6 +111,15 @@ namespace AbstractTree {
 
             if (current == ESCSMB) {
                 escaping = !escaping;
+                if (escaping) continue;
+
+                if (i+1 >= expr.size())
+                    throw std::runtime_error("Incomplete escape sequence");
+
+                char escaped = expr[i+1];
+                resultStack.push(std::make_shared<CharNode>(escaped));
+                i++;
+                escaping = false;
                 continue;
             }
 
@@ -164,7 +193,25 @@ namespace AbstractTree {
                     case '(':
                         if (!begin_of_token)
                             addOperationToStack(operationsStack, resultStack, new StackConcatinationNode());
-                        readGroupName(expr, i, operationsStack, resultStack);
+
+                        if (i + 1 < expr.size() && expr[i+1] == '<') {
+                            size_t name_start = i + 2;
+                            size_t name_end = name_start;
+                            while (name_end < expr.size() && isalpha(expr[name_end])) name_end++;
+
+                            if (name_end >= expr.size() || expr[name_end] != '>')
+                                throw std::runtime_error("Invalid named group syntax");
+
+                            std::string name = expr.substr(name_start, name_end - name_start);
+                            if (groups.count(name))
+                                throw std::runtime_error("Duplicate group name: " + name);
+
+                            groups.insert(name);
+                            i = name_end; // Пропускаем имя группы
+                            addOperationToStack(operationsStack, resultStack, new StackCatchGroupNode(name));
+                        } else {
+                            addOperationToStack(operationsStack, resultStack, new StackCatchGroupNode(""));
+                        }
                         begin_of_token = true;
                         continue;
                     case ')':
@@ -253,6 +300,7 @@ namespace AbstractTree {
 
             if (!charNode->Nullable()) {
                 charNode->enumerate(num);
+                enumData.rootFirstpos.insert(num);
                 enumData.folowPos.resize(num);
                 enumData.character_index[charNode->getValue()].insert(num);
                 return num + 1;
@@ -279,13 +327,16 @@ namespace AbstractTree {
                     enumData.folowPos[last-1].insert(first.begin(), first.end());
                 }
             }
-            else if (auto* group = dynamic_cast<CatchGroup*>(opNode)) {
-                enumData.groupsData[group->getName()].beginWith = group->Firstpos();
-                enumData.groupsData[group->getName()].endWith = group->Lastpos();
+            else  if (auto* group = dynamic_cast<CatchGroup*>(node)) {
+                GroupPositionInfo info;
+                info.start_positions = group->Firstpos();
+                info.end_positions = group->Lastpos();
+                info.is_named = !group->getName().empty();
+                info.name = group->getName();
 
                 std::set<size_t> visited;
                 std::queue<size_t> queue;
-                for (size_t pos : group->Firstpos()) queue.push(pos);
+                for (size_t pos : info.start_positions) queue.push(pos);
 
                 while (!queue.empty()) {
                     size_t current = queue.front();
@@ -294,16 +345,19 @@ namespace AbstractTree {
                     if (visited.count(current)) continue;
                     visited.insert(current);
 
-                    if (!group->Firstpos().count(current) && !group->Lastpos().count(current)) {
-                        enumData.groupsData[group->getName()].insideIn.insert(current);
+                    if (!info.start_positions.count(current) && !info.end_positions.count(current)) {
+                        info.inner_positions.insert(current);
                     }
 
                     for (size_t next : enumData.folowPos[current - 1]) {
-                        if (!visited.count(next) && !group->Lastpos().count(next)) {
+                        if (!visited.count(next) && !info.end_positions.count(next)) {
                             queue.push(next);
                         }
                     }
                 }
+
+                enumData.groups_info.push_back(info);
+                return calculateNode(node, num);
             }
             return num;
         }
@@ -324,9 +378,5 @@ namespace AbstractTree {
 
     AstEnumData AST::getEnumData() const {
         return enumData;
-    }
-
-    AST::AST() {
-
     }
 }

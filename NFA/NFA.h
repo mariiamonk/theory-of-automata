@@ -10,7 +10,6 @@
 #include "../AST/AST.h"
 
 namespace Regex {
-
     class NFAState {
     public:
         std::map<char, std::set<std::shared_ptr<NFAState>>> transitions;
@@ -23,7 +22,6 @@ namespace Regex {
 
         explicit NFAState(size_t id) : id(id) {}
     };
-
     class NFA {
     private:
         std::shared_ptr<NFAState> startState;
@@ -32,10 +30,9 @@ namespace Regex {
         size_t stateCounter = 0;
 
         void buildFromAST(const std::shared_ptr<AbstractTree::ASTNode>& node);
-        void processNode(const std::shared_ptr<AbstractTree::ASTNode>& node, std::shared_ptr<NFAState> start, std::shared_ptr<NFAState> end);
 
     public:
-        explicit NFA(const AbstractTree::AST& ast);
+        explicit NFA(const AbstractTree::AST &ast);
 
         [[nodiscard]] std::shared_ptr<NFAState> getStartState() const { return startState; }
         [[nodiscard]] std::shared_ptr<NFAState> getEndState() const { return endState; }
@@ -47,7 +44,10 @@ namespace Regex {
         void visualizeNFA(const std::string& outputFilename);
 
         void print() const;
-    };
 
+        void processNode(const std::shared_ptr<AbstractTree::ASTNode>& node, std::shared_ptr<NFAState> start, std::shared_ptr<NFAState> end);
+
+        NFA() = default;
+    };
 }
 #endif // NFA_H
